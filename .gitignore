@@ -27,3 +27,5 @@ skills-lock.json
 /*.jpg
 /*.jpeg
 /*.mp4
+.vercel
+.env*

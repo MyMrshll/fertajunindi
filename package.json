@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "test:dashboard": "node --experimental-strip-types --test tests/dashboard-stats.test.ts"
   },
   "dependencies": {
     "@base-ui/react": "^1.9.0",

@@ -26,9 +26,9 @@ export function SiteShell({ children }: { children: React.ReactNode }) {
 
   return (
     <div className="dash-canvas min-h-[100dvh] text-[#F5EEDB]">
-      <div className="mx-auto w-full max-w-7xl px-5 sm:px-8 lg:px-12">
-        <div className="flex flex-col lg:flex-row lg:gap-12">
-          <aside className="lg:w-[280px] lg:shrink-0">
+      <div className="mx-auto w-full max-w-[1800px] px-4 sm:px-6 lg:px-8 xl:px-10">
+        <div className="flex flex-col lg:flex-row lg:gap-10 xl:gap-14">
+          <aside className="lg:w-[280px] xl:w-[300px] lg:shrink-0">
             <div className="dash-panel my-4 flex flex-col justify-between p-4 lg:sticky lg:top-6 lg:my-0 lg:h-[calc(100dvh-3rem)] lg:overflow-y-auto lg:p-5">
               <div>
                 <div className="flex items-center gap-4 pt-6 lg:pt-0">
@@ -125,7 +125,7 @@ export function SiteShell({ children }: { children: React.ReactNode }) {
             </div>
           </aside>
 
-          <div className="min-w-0 flex-1 py-8 lg:py-12">
+          <div className="min-w-0 flex-1 py-8 lg:py-10 xl:py-12">
             {children}
 
             <footer className="lg:hidden mt-14 pt-5 border-t border-white/10 flex items-center justify-between gap-4">

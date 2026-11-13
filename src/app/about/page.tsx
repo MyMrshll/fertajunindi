@@ -21,7 +21,8 @@ export const metadata: Metadata = {
 export default function AboutPage() {
   return (
     <SiteShell>
-      <header className="max-w-2xl">
+      <div className="flex min-h-[calc(100dvh-4rem)] flex-col lg:min-h-[calc(100dvh-6rem)]">
+      <header className="max-w-3xl">
         <p className="font-mono-code text-[11px] uppercase tracking-[0.22em] text-amber-400">
           Profile
         </p>
@@ -34,14 +35,14 @@ export default function AboutPage() {
         </p>
       </header>
 
-      <div className="mt-10 grid grid-cols-1 xl:grid-cols-[minmax(0,1fr)_320px] gap-8 xl:gap-12 items-start">
+      <div className="mt-10 grid flex-1 grid-cols-1 xl:grid-cols-[minmax(0,1fr)_360px] 2xl:grid-cols-[minmax(0,1fr)_400px] gap-8 xl:gap-14 items-start">
         <section>
           <h2 className="font-pixel text-2xl sm:text-3xl font-bold text-[#F5EEDB] pixel-text-shadow leading-tight">
             SYSTEMS &amp; SOFTWARE
             <br className="hidden sm:inline" /> ENGINEERING
           </h2>
 
-          <div className="mt-4 space-y-4 font-mono-code text-sm leading-relaxed text-[#F5EEDB]/70">
+          <div className="mt-4 max-w-4xl space-y-4 font-mono-code text-sm leading-relaxed text-[#F5EEDB]/70">
             <p>
               I am a systems engineer and fullstack developer based in Indonesia.
               At Nuanscape, I lead engineering across web platforms, automated
@@ -90,7 +91,7 @@ export default function AboutPage() {
           </div>
         </section>
 
-        <aside className="rounded-2xl border border-white/10 bg-white/[0.02] p-5">
+        <aside className="rounded-2xl border border-white/10 bg-white/[0.02] p-5 xl:p-6">
           <img
             src="/images/profile.jpg"
             alt="Ferta Junindi"
@@ -141,7 +142,7 @@ export default function AboutPage() {
         </aside>
       </div>
 
-      <section className="mt-14 border-t border-white/10 pt-6">
+      <section className="mt-14 border-t border-white/10 pt-6 xl:mt-20 xl:pt-8">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
           <p className="font-mono-code text-sm text-[#F5EEDB]/60 leading-relaxed max-w-xl">
             Open for systems engineering, backend architecture, and fullstack
@@ -156,6 +157,7 @@ export default function AboutPage() {
           </Link>
         </div>
       </section>
+      </div>
     </SiteShell>
   );
 }

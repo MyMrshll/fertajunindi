@@ -22,7 +22,7 @@ export function ProjectsGrid() {
         {PROJECTS.map((project, index) => (
           <article
             key={project.id}
-            className="group relative rounded-2xl border border-white/12 bg-[#0b0d13] overflow-hidden transition-colors duration-300 hover:border-amber-400/70 hover:shadow-[0_0_28px_rgba(245,158,11,0.12)]"
+            className="dash-card group relative overflow-hidden rounded-2xl"
           >
             <button
               type="button"
@@ -70,7 +70,7 @@ export function ProjectsGrid() {
                   {project.tags.map((tag) => (
                     <span
                       key={tag}
-                      className="font-mono-code text-[10px] px-2 py-0.5 rounded-full border border-white/10 bg-white/5 text-[#F5EEDB]/70"
+                      className="font-mono-code text-[10px] px-2 py-0.5 rounded-full border border-white/10 bg-black/20 text-[#F5EEDB]/70"
                     >
                       {tag}
                     </span>
@@ -93,7 +93,7 @@ export function ProjectsGrid() {
           if (!open) setSelected(null);
         }}
       >
-        <DialogContent className="sm:max-w-2xl bg-[#0b0d13] text-[#F5EEDB] border border-white/15 p-6">
+        <DialogContent className="sm:max-w-2xl bg-[#0b0f16] text-[#F5EEDB] border border-white/15 p-6">
           {selected && (
             <>
               <DialogHeader>

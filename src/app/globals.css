@@ -309,6 +309,118 @@
   animation: skeleton-sweep 1.7s ease-in-out infinite;
 }
 
+/* Public dashboard: dark neumorphism + one glass instrument strip */
+:root,
+.dark {
+  --dash-base: #080b11;
+  --dash-raised: #111722;
+  --dash-raised-2: #0b0f16;
+  --dash-inset: #070a10;
+  --dash-grid: rgba(245, 238, 219, 0.035);
+  --dash-line: rgba(245, 238, 219, 0.1);
+  --dash-line-strong: rgba(245, 238, 219, 0.18);
+  --dash-light: rgba(255, 255, 255, 0.045);
+  --dash-shadow: rgba(0, 0, 0, 0.52);
+}
+
+.dash-canvas {
+  background-color: var(--dash-base);
+  background-image:
+    radial-gradient(circle at 18% 0%, rgba(245, 158, 11, 0.08), transparent 38%),
+    linear-gradient(var(--dash-grid) 1px, transparent 1px),
+    linear-gradient(90deg, var(--dash-grid) 1px, transparent 1px);
+  background-size: auto, 32px 32px, 32px 32px;
+  background-position: center top, center top, center top;
+}
+
+.dash-panel {
+  border: 1px solid var(--dash-line);
+  border-radius: 1.25rem;
+  background: linear-gradient(145deg, var(--dash-raised), var(--dash-raised-2));
+  box-shadow:
+    12px 12px 28px var(--dash-shadow),
+    -6px -6px 16px var(--dash-light),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+.dash-readout {
+  border: 1px solid rgba(245, 238, 219, 0.07);
+  border-radius: 0.85rem;
+  background: var(--dash-inset);
+  box-shadow:
+    inset 5px 5px 12px rgba(0, 0, 0, 0.55),
+    inset -3px -3px 8px rgba(255, 255, 255, 0.025);
+}
+
+.dash-glass {
+  border: 1px solid rgba(245, 238, 219, 0.13);
+  border-radius: 1.25rem;
+  background: linear-gradient(
+    145deg,
+    rgba(20, 27, 40, 0.74),
+    rgba(9, 13, 20, 0.58)
+  );
+  backdrop-filter: blur(18px) saturate(1.15);
+  -webkit-backdrop-filter: blur(18px) saturate(1.15);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.09),
+    0 18px 44px rgba(0, 0, 0, 0.38);
+}
+
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .dash-glass {
+    background: #0e131c;
+  }
+}
+
+.dash-card {
+  border: 1px solid var(--dash-line);
+  background: linear-gradient(145deg, #121925, #0b0f16);
+  box-shadow:
+    8px 8px 20px rgba(0, 0, 0, 0.42),
+    -4px -4px 10px rgba(255, 255, 255, 0.028),
+    inset 0 1px 0 rgba(255, 255, 255, 0.04);
+  transition: border-color 200ms ease, box-shadow 200ms ease;
+}
+
+.dash-card:hover,
+.dash-card:focus-within {
+  border-color: rgba(245, 158, 11, 0.42);
+  box-shadow:
+    10px 10px 26px rgba(0, 0, 0, 0.52),
+    -4px -4px 10px rgba(255, 255, 255, 0.03),
+    0 0 0 1px rgba(245, 158, 11, 0.12);
+}
+
+.dash-eyebrow {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 10px;
+  line-height: 1.4;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(245, 158, 11, 0.92);
+}
+
+.dash-nav-item {
+  border: 1px solid transparent;
+  color: rgba(245, 238, 219, 0.58);
+}
+
+.dash-nav-item:hover {
+  border-color: rgba(245, 238, 219, 0.1);
+  background: rgba(255, 255, 255, 0.035);
+  color: #f5eedb;
+}
+
+.dash-nav-active {
+  border: 1px solid rgba(245, 158, 11, 0.24);
+  background: var(--dash-inset);
+  color: #fbbf24;
+  box-shadow:
+    inset 4px 4px 10px rgba(0, 0, 0, 0.55),
+    inset -2px -2px 6px rgba(255, 255, 255, 0.025);
+}
+
 /* Accessibility: Respect Reduced Motion */
 @media (prefers-reduced-motion: reduce) {
   *,

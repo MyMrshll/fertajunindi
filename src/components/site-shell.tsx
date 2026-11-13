@@ -25,11 +25,11 @@ export function SiteShell({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
 
   return (
-    <div className="min-h-[100dvh] bg-[#07090e] text-[#F5EEDB]">
+    <div className="dash-canvas min-h-[100dvh] text-[#F5EEDB]">
       <div className="mx-auto w-full max-w-7xl px-5 sm:px-8 lg:px-12">
         <div className="flex flex-col lg:flex-row lg:gap-12">
-          <aside className="border-b border-white/10 lg:border-b-0 lg:w-[288px] lg:shrink-0">
-            <div className="flex flex-col justify-between lg:sticky lg:top-0 lg:h-[100dvh] lg:border-r lg:border-white/10 lg:py-10 lg:pr-8">
+          <aside className="lg:w-[280px] lg:shrink-0">
+            <div className="dash-panel my-4 flex flex-col justify-between p-4 lg:sticky lg:top-6 lg:my-0 lg:h-[calc(100dvh-3rem)] lg:overflow-y-auto lg:p-5">
               <div>
                 <div className="flex items-center gap-4 pt-6 lg:pt-0">
                   <img
@@ -57,14 +57,13 @@ export function SiteShell({ children }: { children: React.ReactNode }) {
                   </div>
                 </div>
 
-                <nav aria-label="Main navigation" className="mt-5 lg:mt-10 flex flex-wrap lg:flex-col gap-1.5 lg:gap-2">
+                <p className="dash-eyebrow mt-6 lg:mt-8">PUBLIC INDEX</p>
+                <nav aria-label="Main navigation" className="mt-3 lg:mt-5 flex flex-wrap lg:flex-col gap-1.5 lg:gap-2">
                   {NAV_ITEMS.map((item) => {
                     const active = pathname === item.href;
                     const className = cn(
                       "font-mono-code text-sm lg:text-lg rounded-lg px-3 py-2 lg:px-4 lg:py-2.5 transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-400",
-                      active
-                        ? "bg-amber-400/10 text-amber-300 border border-amber-400/25"
-                        : "text-[#F5EEDB]/60 border border-transparent hover:text-[#F5EEDB] hover:bg-white/5"
+                      active ? "dash-nav-active" : "dash-nav-item"
                     );
 
                     if (item.external) {
@@ -104,7 +103,7 @@ export function SiteShell({ children }: { children: React.ReactNode }) {
                       target="_blank"
                       rel="noopener noreferrer"
                       aria-label={label}
-                      className="flex size-9 items-center justify-center rounded-full border border-white/10 bg-white/[0.03] text-[#F5EEDB]/65 transition-colors duration-200 hover:border-amber-400/50 hover:text-amber-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-400"
+                      className="dash-readout flex size-9 items-center justify-center rounded-full text-[#F5EEDB]/65 transition-colors duration-200 hover:border-amber-400/50 hover:text-amber-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-400"
                     >
                       <Icon className="size-4" />
                     </a>
@@ -138,7 +137,7 @@ export function SiteShell({ children }: { children: React.ReactNode }) {
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label={label}
-                    className="flex size-9 items-center justify-center rounded-full border border-white/10 bg-white/[0.03] text-[#F5EEDB]/65 transition-colors hover:border-amber-400/50 hover:text-amber-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-400"
+                    className="dash-readout flex size-9 items-center justify-center rounded-full text-[#F5EEDB]/65 transition-colors hover:border-amber-400/50 hover:text-amber-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-400"
                   >
                     <Icon className="size-4" />
                   </a>

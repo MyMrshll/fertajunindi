@@ -15,7 +15,7 @@ export function Collaborations() {
 
   return (
     <>
-      <section className="mt-16">
+      <section className="dash-panel mt-6 p-5 sm:p-6">
         <div className="flex flex-wrap items-end justify-between gap-3">
           <div>
             <p className="font-mono-code text-[11px] uppercase tracking-[0.22em] text-amber-400">
@@ -33,7 +33,7 @@ export function Collaborations() {
         <div className="mt-5 grid grid-cols-1 md:grid-cols-2 gap-3 items-start">
           {COLLABORATIONS.map((item) => {
             const body = (
-              <div className="group flex flex-col rounded-xl border border-white/10 bg-white/[0.02] p-4 transition-colors duration-200 hover:border-amber-400/40 hover:bg-white/[0.04]">
+              <div className="dash-card group flex flex-col rounded-xl p-4">
                 <div className="flex items-start justify-between gap-3">
                   <div className="min-w-0">
                     <p className="font-pixel text-sm font-bold text-[#F5EEDB] truncate">
@@ -105,7 +105,7 @@ export function Collaborations() {
         </div>
       </section>
 
-      <section className="mt-16">
+      <section className="dash-panel mt-6 p-5 sm:p-6">
         <div className="flex flex-wrap items-end justify-between gap-3">
           <div>
             <p className="font-mono-code text-[11px] uppercase tracking-[0.22em] text-amber-400">

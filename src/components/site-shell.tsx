@@ -10,7 +10,9 @@ import { cn } from "@/lib/utils";
 
 const NAV_ITEMS: { href: string; label: string; external?: boolean }[] = [
   { href: "/", label: "Home" },
+  { href: "/about", label: "About" },
   { href: "/projects", label: "Projects" },
+  { href: "/contact", label: "Contact" },
   { href: GITHUB_URL, label: "GitHub", external: true },
 ];
 
@@ -55,7 +57,7 @@ export function SiteShell({ children }: { children: React.ReactNode }) {
                   </div>
                 </div>
 
-                <nav aria-label="Main navigation" className="mt-5 lg:mt-10 flex lg:flex-col gap-1.5">
+                <nav aria-label="Main navigation" className="mt-5 lg:mt-10 flex flex-wrap lg:flex-col gap-1.5">
                   {NAV_ITEMS.map((item) => {
                     const active = pathname === item.href;
                     const className = cn(

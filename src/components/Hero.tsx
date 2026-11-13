@@ -80,20 +80,32 @@ export default function Hero() {
             FJ
           </Link>
 
-          <div className="flex items-center gap-1 sm:gap-5 text-xs sm:text-sm font-medium">
+          <div className="flex items-center gap-0.5 sm:gap-5 text-[11px] sm:text-sm font-medium">
             <Link
               href="/"
               aria-current="page"
-              className="relative px-2.5 sm:px-0 py-2 sm:py-1.5 text-foreground font-semibold"
+              className="relative px-1 sm:px-0 py-2 sm:py-1.5 text-foreground font-semibold whitespace-nowrap"
             >
               Home
-              <span className="absolute left-2 sm:left-0 right-2 sm:right-0 bottom-1 sm:bottom-0 h-[2px] bg-foreground rounded-full" />
+              <span className="absolute left-1 sm:left-0 right-1 sm:right-0 bottom-1 sm:bottom-0 h-[2px] bg-foreground rounded-full" />
+            </Link>
+            <Link
+              href="/about"
+              className="px-1 sm:px-0 py-2 sm:py-1.5 text-foreground/65 hover:text-foreground transition-colors whitespace-nowrap"
+            >
+              About
             </Link>
             <Link
               href="/projects"
-              className="px-2.5 sm:px-0 py-2 sm:py-1.5 text-foreground/65 hover:text-foreground transition-colors"
+              className="px-1 sm:px-0 py-2 sm:py-1.5 text-foreground/65 hover:text-foreground transition-colors whitespace-nowrap"
             >
               Projects
+            </Link>
+            <Link
+              href="/contact"
+              className="px-1 sm:px-0 py-2 sm:py-1.5 text-foreground/65 hover:text-foreground transition-colors whitespace-nowrap"
+            >
+              Contact
             </Link>
           </div>
 

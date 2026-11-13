@@ -1,17 +1,20 @@
 import type { Metadata } from "next";
-import { SiteShell } from "@/components/site-shell";
+import { LauncherShell } from "@/components/launcher-shell";
+import { GithubIcon, InstagramIcon } from "@/components/icons";
 import {
   COLLABORATIONS,
   GITHUB_URL,
+  INSTAGRAM_URL,
   OTHER_REPOS,
   PROFILE,
   PROJECTS,
 } from "@/lib/projects";
-import { GithubIcon } from "@/components/icons";
 import { buildDashboardStats } from "@/lib/dashboard-stats";
-import { DashboardMetrics } from "./dashboard-metrics";
-import { DashboardSignal } from "./dashboard-signal";
-import { ProjectsGrid } from "./projects-grid";
+import { Greeting } from "./greeting";
+import { FeaturedProject } from "./featured-project";
+import { ProjectLibrary } from "./project-library";
+import { LatestStrip } from "./latest-strip";
+import { InsightsPanel } from "./insights-panel";
 import { Collaborations } from "./collaborations";
 
 export const metadata: Metadata = {
@@ -29,59 +32,50 @@ export default function ProjectsPage() {
   });
 
   return (
-    <SiteShell>
-      <header className="max-w-3xl">
-        <p className="dash-eyebrow">PUBLIC PORTFOLIO / PROJECT INDEX</p>
-        <h1 className="mt-2 font-pixel text-3xl font-bold text-[#F5EEDB] pixel-text-shadow sm:text-4xl lg:text-5xl">
-          DASHBOARD
-        </h1>
-        <p className="mt-3 font-mono-code text-sm leading-relaxed text-[#F5EEDB]/60">
-          A public index of selected systems, invited collaborations, and
-          experiments. Every count below is derived from the portfolio source,
-          not fabricated telemetry.
-        </p>
-        <a
-          href={GITHUB_URL}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="mt-3 inline-flex items-center gap-2 rounded font-mono-code text-[11px] text-amber-300/90 transition-colors hover:text-amber-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-400"
-        >
-          <GithubIcon className="size-3.5" />
-          github.com/MyMrshll
-        </a>
-      </header>
-
-      <DashboardMetrics stats={stats} />
-
-      <div className="mt-6 grid grid-cols-1 gap-6 xl:grid-cols-12">
-        <section
-          className="dash-panel p-4 sm:p-6 xl:col-span-8"
-          aria-labelledby="selected-works-heading"
-        >
-          <div className="flex flex-wrap items-end justify-between gap-3">
-            <div>
-              <p className="dash-eyebrow">01 / SELECTED WORKS</p>
-              <h2
-                id="selected-works-heading"
-                className="mt-1 font-pixel text-2xl font-bold text-[#F5EEDB] sm:text-3xl"
-              >
-                PROJECT INDEX
-              </h2>
-            </div>
-            <span className="dash-readout px-3 py-1.5 font-mono-code text-[11px] text-[#F5EEDB]/65">
-              {stats.selectedWorks} entries
+    <LauncherShell>
+      <div className="px-4 py-4 sm:px-6 lg:px-8 lg:py-6">
+        <header className="flex flex-wrap items-center justify-between gap-3">
+          <Greeting />
+          <div className="flex flex-wrap items-center gap-2">
+            <span className="inline-flex items-center gap-2 rounded-full border border-amber-400/20 bg-amber-400/[0.06] px-3 py-1.5 font-mono-code text-[10px] uppercase tracking-[0.14em] text-amber-300">
+              <span className="size-1.5 rounded-full bg-amber-400" />
+              Open to work
             </span>
+            <a
+              href={GITHUB_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="GitHub"
+              className="grid size-9 place-items-center rounded-full border border-white/10 text-[#F5EEDB]/55 transition-colors hover:border-amber-400/50 hover:text-amber-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-400"
+            >
+              <GithubIcon className="size-4" />
+            </a>
+            <a
+              href={INSTAGRAM_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Instagram"
+              className="grid size-9 place-items-center rounded-full border border-white/10 text-[#F5EEDB]/55 transition-colors hover:border-amber-400/50 hover:text-amber-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-400"
+            >
+              <InstagramIcon className="size-4" />
+            </a>
+          </div>
+        </header>
+
+        <div className="mt-4 grid grid-cols-1 gap-5 xl:grid-cols-[minmax(0,1fr)_360px] xl:gap-6">
+          <div className="min-w-0 space-y-4">
+            <FeaturedProject project={PROJECTS[0]} />
+            <ProjectLibrary projects={PROJECTS} />
+            <LatestStrip project={PROJECTS[PROJECTS.length - 1]} stats={stats} />
           </div>
 
-          <ProjectsGrid />
-        </section>
+          <InsightsPanel stats={stats} collaborations={COLLABORATIONS} />
+        </div>
 
-        <div className="min-w-0 xl:col-span-4">
-          <DashboardSignal stats={stats} />
+        <div className="mt-6">
+          <Collaborations />
         </div>
       </div>
-
-      <Collaborations />
-    </SiteShell>
+    </LauncherShell>
   );
 }

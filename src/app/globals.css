@@ -421,6 +421,39 @@
     inset -2px -2px 6px rgba(255, 255, 255, 0.025);
 }
 
+/* Launcher view: featured banner + horizontal project shelf */
+.launcher-hero {
+  background-image:
+    radial-gradient(circle at 78% 38%, rgba(245, 158, 11, 0.16), transparent 42%),
+    radial-gradient(circle at 6% 100%, rgba(245, 158, 11, 0.08), transparent 46%),
+    linear-gradient(135deg, #191109 0%, #0b0f16 58%, #080b11 100%);
+  box-shadow:
+    0 24px 60px rgba(0, 0, 0, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.06);
+}
+
+.launcher-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(rgba(245, 238, 219, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(245, 238, 219, 0.035) 1px, transparent 1px);
+  background-size: 28px 28px;
+  mask-image: linear-gradient(90deg, black, transparent 78%);
+  -webkit-mask-image: linear-gradient(90deg, black, transparent 78%);
+}
+
+.launcher-scroll {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.launcher-scroll::-webkit-scrollbar {
+  display: none;
+}
+
 /* Accessibility: Respect Reduced Motion */
 @media (prefers-reduced-motion: reduce) {
   *,

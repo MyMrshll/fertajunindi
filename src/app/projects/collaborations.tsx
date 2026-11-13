@@ -15,7 +15,7 @@ export function Collaborations() {
 
   return (
     <>
-      <section className="dash-panel mt-6 p-5 sm:p-6">
+      <section id="collaborations" className="dash-panel mt-6 scroll-mt-6 p-5 sm:p-6">
         <div className="flex flex-wrap items-end justify-between gap-3">
           <div>
             <p className="font-mono-code text-[11px] uppercase tracking-[0.22em] text-amber-400">
@@ -105,7 +105,7 @@ export function Collaborations() {
         </div>
       </section>
 
-      <section className="dash-panel mt-6 p-5 sm:p-6">
+      <section id="archive" className="dash-panel mt-6 scroll-mt-6 p-5 sm:p-6">
         <div className="flex flex-wrap items-end justify-between gap-3">
           <div>
             <p className="font-mono-code text-[11px] uppercase tracking-[0.22em] text-amber-400">

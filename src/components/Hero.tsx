@@ -80,7 +80,7 @@ export default function Hero() {
             FJ
           </Link>
 
-          <div className="flex items-center gap-0.5 sm:gap-5 text-[11px] sm:text-sm font-medium">
+          <div className="flex items-center gap-0.5 sm:gap-5 text-[11px] sm:text-base font-medium">
             <Link
               href="/"
               aria-current="page"

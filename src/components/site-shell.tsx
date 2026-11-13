@@ -57,11 +57,11 @@ export function SiteShell({ children }: { children: React.ReactNode }) {
                   </div>
                 </div>
 
-                <nav aria-label="Main navigation" className="mt-5 lg:mt-10 flex flex-wrap lg:flex-col gap-1.5">
+                <nav aria-label="Main navigation" className="mt-5 lg:mt-10 flex flex-wrap lg:flex-col gap-1.5 lg:gap-2">
                   {NAV_ITEMS.map((item) => {
                     const active = pathname === item.href;
                     const className = cn(
-                      "font-mono-code text-sm rounded-lg px-3 py-2 transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-400",
+                      "font-mono-code text-sm lg:text-lg rounded-lg px-3 py-2 lg:px-4 lg:py-2.5 transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-400",
                       active
                         ? "bg-amber-400/10 text-amber-300 border border-amber-400/25"
                         : "text-[#F5EEDB]/60 border border-transparent hover:text-[#F5EEDB] hover:bg-white/5"

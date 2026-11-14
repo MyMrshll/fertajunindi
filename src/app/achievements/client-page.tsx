@@ -161,9 +161,14 @@ export function AchievementsClient() {
                             ? "border border-[#10B981]/40 bg-[#10B981]/10 text-[#10B981]"
                             : item.rank === "3rd Place"
                             ? "border border-[#F59E0B]/40 bg-[#F59E0B]/10 text-[#FBBF24]"
+                            : item.badge === "TAHAP ABSTRAKSI"
+                            ? "border border-sky-500/40 bg-sky-500/10 text-sky-300"
                             : "border border-white/15 bg-white/5 text-[#E4E4E7]"
                         }`}
                       >
+                        {item.badge === "TAHAP ABSTRAKSI" && (
+                          <span className="size-1.5 rounded-full bg-sky-400 animate-pulse" />
+                        )}
                         {item.badge}
                       </span>
                     )}

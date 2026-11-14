@@ -55,6 +55,14 @@ test("contains verified INFEST Hackathon 2025 with photo", () => {
   }
 });
 
+test("contains STACK 2026 in abstract stage", () => {
+  const stack = ACHIEVEMENTS.find((a) => a.id === "stack-hackathon-2026");
+  assert.ok(stack, "STACK 2026 achievement must exist");
+  assert.equal(stack?.rank, "Tahap Abstraksi");
+  assert.equal(stack?.badge, "TAHAP ABSTRAKSI");
+  assert.equal(stack?.highlight, false, "should not be highlighted as a completed win");
+});
+
 test("pixel medal assets exist in public/images/icons", () => {
   const icons = [
     "pixel-medal-gold.svg",

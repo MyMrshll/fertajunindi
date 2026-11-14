@@ -29,7 +29,7 @@ export function AboutLanyard({
         frontImage="/images/ferta-foto.png"
         backImage="/images/Gemini_Generated_Image_o9woxlo9woxlo9wo.jpg"
         strapImage="/images/nuanscape-lanyard-rope.jpg"
-        cardColor="#121215"
+        cardColor="#ffffff"
         finish="glossy"
         size={0.58}
         anchor="about"

@@ -37,14 +37,14 @@ export default function ProjectsPage() {
         <header className="flex flex-col gap-4 xl:flex-row xl:items-end xl:justify-between">
           <div>
             <Greeting />
-            <p className="mt-1 max-w-xl font-mono-code text-[11px] text-[#B9A9C5]">
+            <p className="mt-1 max-w-xl font-mono-code text-[11px] text-[#A1A1AA]">
               Selected systems, collaborations, and the public archive.
             </p>
           </div>
 
           <div className="flex flex-wrap items-center gap-2">
-            <span className="inline-flex items-center gap-2 rounded-full border border-[#B95465]/30 bg-[#A94A5A]/[0.08] px-3 py-1.5 font-mono-code text-[10px] uppercase tracking-[0.14em] text-[#FCC27D]">
-              <span className="size-1.5 rounded-full bg-[#FCC27D]" />
+            <span className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-3 py-1.5 font-mono-code text-[10px] uppercase tracking-[0.14em] text-[#E4E4E7]">
+              <span className="size-1.5 rounded-full bg-[#10B981]" />
               Open to work
             </span>
             <a
@@ -52,7 +52,7 @@ export default function ProjectsPage() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="GitHub"
-              className="grid size-9 place-items-center rounded-full border border-[#F6E8C8]/10 text-[#B9A9C5] transition-colors hover:border-[#FCC27D]/50 hover:text-[#FCC27D] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#37D1E3]"
+              className="grid size-9 place-items-center rounded-full border border-white/10 text-[#A1A1AA] transition-colors hover:border-white/20 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/40"
             >
               <GithubIcon className="size-4" />
             </a>
@@ -61,7 +61,7 @@ export default function ProjectsPage() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Instagram"
-              className="grid size-9 place-items-center rounded-full border border-[#F6E8C8]/10 text-[#B9A9C5] transition-colors hover:border-[#FCC27D]/50 hover:text-[#FCC27D] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#37D1E3]"
+              className="grid size-9 place-items-center rounded-full border border-white/10 text-[#A1A1AA] transition-colors hover:border-white/20 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/40"
             >
               <InstagramIcon className="size-4" />
             </a>

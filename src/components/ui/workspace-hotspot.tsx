@@ -219,27 +219,27 @@ export function WorkspaceHotspot({
       <div
         className={`w-full h-full relative rounded-lg transition-all duration-300 ${
           isActive
-            ? "scale-[1.03] bg-[#37D1E3]/[0.05] shadow-[0_0_26px_rgba(55,209,227,0.4),inset_0_0_16px_rgba(55,209,227,0.18)]"
+            ? "scale-[1.03] bg-white/[0.05] shadow-[0_0_26px_rgba(255,255,255,0.2)]"
             : "scale-100 bg-transparent shadow-none"
         }`}
       >
-        {/* Retro Indie Pixel-Art Corner Brackets [ ] in Warm Amber / Sunset Gold */}
+        {/* Retro Pixel-Art Corner Brackets [ ] */}
         <div
           className={`absolute inset-0 pointer-events-none transition-opacity duration-300 ${
             isActive ? "opacity-100" : "opacity-0"
           }`}
         >
           {/* Top-Left Bracket */}
-          <div className="absolute top-0 left-0 w-3.5 h-3.5 border-t-2 border-l-2 border-[#37D1E3] shadow-[0_0_8px_#FCC27D]" />
+          <div className="absolute top-0 left-0 w-3.5 h-3.5 border-t-2 border-l-2 border-white/80" />
           {/* Top-Right Bracket */}
-          <div className="absolute top-0 right-0 w-3.5 h-3.5 border-t-2 border-r-2 border-[#37D1E3] shadow-[0_0_8px_#FCC27D]" />
+          <div className="absolute top-0 right-0 w-3.5 h-3.5 border-t-2 border-r-2 border-white/80" />
           {/* Bottom-Left Bracket */}
-          <div className="absolute bottom-0 left-0 w-3.5 h-3.5 border-b-2 border-l-2 border-[#37D1E3] shadow-[0_0_8px_#FCC27D]" />
+          <div className="absolute bottom-0 left-0 w-3.5 h-3.5 border-b-2 border-l-2 border-white/80" />
           {/* Bottom-Right Bracket */}
-          <div className="absolute bottom-0 right-0 w-3.5 h-3.5 border-b-2 border-r-2 border-[#37D1E3] shadow-[0_0_8px_#FCC27D]" />
+          <div className="absolute bottom-0 right-0 w-3.5 h-3.5 border-b-2 border-r-2 border-white/80" />
         </div>
 
-        {/* Floating Discovery Tooltip: 1 Single Word with Warm Sunset Styling */}
+        {/* Floating Discovery Tooltip: 1 Single Word */}
         <AnimatePresence>
           {isActive && (
             <motion.div
@@ -249,18 +249,18 @@ export function WorkspaceHotspot({
               transition={{ type: "spring", stiffness: 360, damping: 25 }}
               className="absolute -top-11 sm:-top-12 left-1/2 -translate-x-1/2 pointer-events-auto flex flex-col items-center whitespace-nowrap z-30"
             >
-              {/* Single Word Warm Badge */}
+              {/* Single Word Dark Badge */}
               <div
                 onClick={handleClick}
-                className="flex items-center gap-2 px-3 sm:px-3.5 py-1 sm:py-1.5 rounded-full bg-[#191740]/95 border border-[#37D1E3]/80 text-[#F6E8C8] font-pixel text-xs sm:text-sm font-bold tracking-widest shadow-[0_0_20px_rgba(55,209,227,0.45),0_6px_16px_rgba(0,0,0,0.8)] backdrop-blur-md transition-all duration-200 hover:scale-105 active:scale-95"
+                className="flex items-center gap-2 px-3 sm:px-3.5 py-1 sm:py-1.5 rounded-full bg-[#121215] border border-white/20 text-[#F4F4F5] font-pixel text-xs sm:text-sm font-bold tracking-widest shadow-2xl backdrop-blur-md transition-all duration-200 hover:scale-105 active:scale-95"
               >
-                <span className="w-1.5 h-1.5 rounded-full bg-[#FCC27D] animate-pulse shadow-[0_0_8px_#FCC27D]" />
+                <span className="w-1.5 h-1.5 rounded-full bg-[#10B981] animate-pulse" />
                 <span>{label}</span>
-                <span className="font-mono-code text-[11px] text-[#FCC27D]">↗</span>
+                <span className="font-mono-code text-[11px] text-[#A1A1AA]">↗</span>
               </div>
 
-              {/* Warm Down-Pointing Arrow */}
-              <div className="w-0 h-0 border-x-4 border-x-transparent border-t-4 border-t-[#37D1E3] mt-0.5 opacity-90 shadow-[0_2px_4px_rgba(0,0,0,0.5)]" />
+              {/* Down-Pointing Arrow */}
+              <div className="w-0 h-0 border-x-4 border-x-transparent border-t-4 border-t-white/30 mt-0.5 opacity-90 shadow-[0_2px_4px_rgba(0,0,0,0.5)]" />
             </motion.div>
           )}
         </AnimatePresence>

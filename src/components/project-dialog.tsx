@@ -21,22 +21,22 @@ export function ProjectDialog({
 }) {
   return (
     <Dialog open={Boolean(project)} onOpenChange={onOpenChange}>
-      <DialogContent className="sm:max-w-2xl bg-[#191740] text-[#F6E8C8] border border-[#F6E8C8]/15 p-6">
+      <DialogContent className="sm:max-w-2xl bg-[#121215] text-[#F4F4F5] border border-white/10 p-6 shadow-2xl">
         {project && (
           <>
             <DialogHeader>
-              <div className="font-mono-code text-[11px] uppercase tracking-[0.14em] text-[#FCC27D]">
+              <div className="font-mono-code text-[11px] uppercase tracking-[0.14em] text-[#A1A1AA]">
                 {project.category} · {project.year}
               </div>
-              <DialogTitle className="font-pixel text-2xl sm:text-3xl font-bold text-[#F6E8C8]">
+              <DialogTitle className="font-pixel text-2xl sm:text-3xl font-bold text-[#F4F4F5]">
                 {project.title}
               </DialogTitle>
-              <DialogDescription className="font-mono-code text-sm text-[#B9A9C5] leading-relaxed">
+              <DialogDescription className="font-mono-code text-sm text-[#A1A1AA] leading-relaxed">
                 {project.description}
               </DialogDescription>
             </DialogHeader>
 
-            <div className="relative aspect-[2/1] w-full rounded-xl overflow-hidden border border-[#F6E8C8]/10 bg-[#2A2C6A]/30">
+            <div className="relative aspect-[2/1] w-full rounded-xl overflow-hidden border border-white/10 bg-[#18181B]">
               <ImageWithSkeleton
                 src={project.image}
                 alt={project.title}
@@ -49,7 +49,7 @@ export function ProjectDialog({
                 {project.tags.map((tag) => (
                   <span
                     key={tag}
-                    className="font-mono-code text-[11px] px-2.5 py-1 rounded-full border border-[#F6E8C8]/10 bg-[#2A2C6A]/30 text-[#B9A9C5]"
+                    className="font-mono-code text-[11px] px-2.5 py-1 rounded-full border border-white/10 bg-white/5 text-[#A1A1AA]"
                   >
                     {tag}
                   </span>
@@ -63,7 +63,7 @@ export function ProjectDialog({
                   href={project.link}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 rounded-full bg-[#A94A5A] px-4 py-2 font-mono-code text-xs font-bold text-[#F6E8C8] transition-colors hover:bg-[#983E4F] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#37D1E3]"
+                  className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-[#27272A] px-4 py-2 font-mono-code text-xs font-bold text-white transition-colors hover:bg-[#3F3F46] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/40"
                 >
                   <GithubIcon className="size-4" />
                   Repository
@@ -74,7 +74,7 @@ export function ProjectDialog({
                   href={project.demo}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 rounded-full border border-[#F6E8C8]/20 px-4 py-2 font-mono-code text-xs text-[#F6E8C8]/85 transition-colors hover:border-[#B95465]/60 hover:text-[#FCC27D] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#37D1E3]"
+                  className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 py-2 font-mono-code text-xs text-[#F4F4F5] transition-colors hover:border-white/30 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/40"
                 >
                   Live Demo
                   <ExternalLink className="size-3.5" />

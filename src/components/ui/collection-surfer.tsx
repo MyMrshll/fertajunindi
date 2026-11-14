@@ -261,15 +261,15 @@ export function CollectionSurfer({
                 {subtitle}
               </span>
             )}
-            <h3 className="font-pixel text-2xl sm:text-4xl lg:text-5xl font-bold text-[#F6E8C8] pixel-text-shadow leading-tight">
+            <h3 className="font-pixel text-2xl sm:text-4xl lg:text-5xl font-bold text-[#F4F4F5] pixel-text-shadow leading-tight">
               {title}
-              <span className="text-[#FCC27D] text-lg sm:text-2xl ml-2 font-mono-code font-normal">
+              <span className="text-[#E4E4E7] text-lg sm:text-2xl ml-2 font-mono-code font-normal">
                 ({items.length})
               </span>
             </h3>
           </div>
-          <div className="font-mono-code text-xs text-[#F6E8C8]/90 uppercase tracking-wider flex items-center gap-2">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#FCC27D]" />
+          <div className="font-mono-code text-xs text-[#A1A1AA] uppercase tracking-wider flex items-center gap-2">
+            <span className="w-1.5 h-1.5 rounded-full bg-[#10B981]" />
             <span>Drag &amp; Click Cards to Inspect</span>
           </div>
         </div>
@@ -277,7 +277,7 @@ export function CollectionSurfer({
 
       {/* 3D Scene Viewport with Mouse Drag Support */}
       <div
-        className="relative flex-1 w-full flex items-center justify-center overflow-hidden cursor-grab active:cursor-grabbing touch-pan-y focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#37D1E3]/50 focus-visible:ring-inset rounded-2xl"
+        className="relative flex-1 w-full flex items-center justify-center overflow-hidden cursor-grab active:cursor-grabbing touch-pan-y focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/40 focus-visible:ring-inset rounded-2xl"
         role="group"
         aria-label="Project archive. Drag with the mouse or use the left and right arrow keys to browse. Press Enter on a card to inspect it."
         tabIndex={0}
@@ -332,19 +332,19 @@ export function CollectionSurfer({
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.92, y: 20 }}
               transition={{ type: "spring", stiffness: 280, damping: 26 }}
-              className="relative w-full max-w-2xl rounded-3xl bg-[#191740] border border-[#F6E8C8]/20 p-6 sm:p-8 shadow-2xl text-[#F6E8C8]"
+              className="relative w-full max-w-2xl rounded-3xl bg-[#121215] border border-white/10 p-6 sm:p-8 shadow-2xl text-[#F4F4F5]"
               onClick={(e) => e.stopPropagation()}
             >
               {/* Close Button */}
               <button
                 onClick={() => setSelectedItem(null)}
-                className="absolute top-5 right-5 w-8 h-8 rounded-full bg-[#F6E8C8]/10 hover:bg-[#2A2C6A]/50 flex items-center justify-center text-[#F6E8C8] transition-colors cursor-pointer"
+                className="absolute top-5 right-5 w-8 h-8 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white transition-colors cursor-pointer"
               >
                 <X className="w-4 h-4" />
               </button>
 
               {/* Header */}
-              <div className="flex items-center gap-2 mb-3 font-mono-code text-xs text-[#FCC27D]">
+              <div className="flex items-center gap-2 mb-3 font-mono-code text-xs text-[#A1A1AA]">
                 <Terminal className="w-4 h-4" />
                 <span className="uppercase font-semibold tracking-wider">
                   {selectedItem.category}
@@ -353,33 +353,32 @@ export function CollectionSurfer({
                 <span>{selectedItem.year || "2026"}</span>
               </div>
 
-              <h3 className="font-pixel text-2xl sm:text-3xl font-bold text-[#F6E8C8] mb-4">
+              <h3 className="font-pixel text-2xl sm:text-3xl font-bold text-[#F4F4F5] mb-4">
                 {selectedItem.title}
               </h3>
 
               {/* Card Image Banner */}
-              <div className="relative aspect-video w-full rounded-2xl overflow-hidden mb-5 border border-[#F6E8C8]/10">
+              <div className="relative aspect-video w-full rounded-2xl overflow-hidden mb-5 border border-white/10">
                 <img
                   src={selectedItem.image}
                   alt={selectedItem.title}
                   className="w-full h-full object-cover object-center"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#191740]/90 via-transparent to-transparent pointer-events-none" />
               </div>
 
               {/* Description */}
-              <p className="font-mono-code text-xs sm:text-sm text-[#F6E8C8]/90 leading-relaxed mb-5">
+              <p className="font-mono-code text-xs sm:text-sm text-[#A1A1AA] leading-relaxed mb-5">
                 {selectedItem.description ||
                   "Fullstack production project with clean data boundaries and reliable runtime behavior."}
               </p>
 
               {/* Tags */}
               {selectedItem.tags && (
-                <div className="flex flex-wrap gap-2 pt-2 border-t border-[#F6E8C8]/10">
+                <div className="flex flex-wrap gap-2 pt-2 border-t border-white/10">
                   {selectedItem.tags.map((tag) => (
                     <span
                       key={tag}
-                      className="font-mono-code text-[11px] px-3 py-1 rounded-full bg-[#2A2C6A]/30 border border-[#F6E8C8]/10 text-[#FCC27D]/90"
+                      className="font-mono-code text-[11px] px-3 py-1 rounded-full bg-white/5 border border-white/10 text-[#A1A1AA]"
                     >
                       {tag}
                     </span>
@@ -473,20 +472,20 @@ function Card({
       role="button"
       tabIndex={0}
       aria-label={`Inspect project ${item.title}`}
-      className="absolute w-[320px] sm:w-[400px] md:w-[470px] aspect-[16/10] rounded-2xl bg-[#191740]/95 border border-[#F6E8C8]/20 overflow-hidden shadow-2xl transition-colors duration-300 group hover:border-[#FCC27D] hover:shadow-[0_0_25px_rgba(185,84,101,0.3)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#37D1E3] cursor-pointer"
+      className="absolute w-[320px] sm:w-[400px] md:w-[470px] aspect-[16/10] rounded-2xl bg-[#121215] border border-white/10 overflow-hidden shadow-2xl transition-colors duration-300 group hover:border-white/30 hover:shadow-2xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/40 cursor-pointer"
       style={{
         transform,
         transformStyle: "preserve-3d",
       }}
     >
       {/* Index Number Badge */}
-      <div className="absolute top-3 left-3 z-10 px-2.5 py-0.5 rounded-full bg-black/65 border border-[#F6E8C8]/10 text-[#F6E8C8] font-mono-code text-xs font-semibold">
+      <div className="absolute top-3 left-3 z-10 px-2.5 py-0.5 rounded-full bg-black/75 border border-white/15 text-white font-mono-code text-xs font-semibold">
         #{displayNum}
       </div>
 
       {/* Year Badge */}
       {item.year && (
-        <div className="absolute top-3 right-3 z-10 px-2.5 py-0.5 rounded-full bg-[#34182D]/90 border border-[#B95465]/35 text-[#FCC27D] font-mono-code text-[11px]">
+        <div className="absolute top-3 right-3 z-10 px-2.5 py-0.5 rounded-full bg-black/75 border border-white/15 text-[#E4E4E7] font-mono-code text-[11px]">
           {item.year}
         </div>
       )}
@@ -501,17 +500,14 @@ function Card({
         />
       </div>
 
-      {/* Bottom Gradient overlay */}
-      <div className="absolute inset-0 bg-gradient-to-t from-[#0E0926] via-[#0E0926]/55 to-transparent pointer-events-none" />
-
       {/* Card Info */}
-      <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-5 font-mono-code z-10">
+      <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-5 font-mono-code z-10 bg-[#09090B]/90 border-t border-white/10">
         {item.category && (
-          <span className="text-[11px] sm:text-xs text-[#FCC27D] block uppercase tracking-wider mb-1 font-semibold">
+          <span className="text-[11px] sm:text-xs text-[#A1A1AA] block uppercase tracking-wider mb-1 font-semibold">
             {item.category}
           </span>
         )}
-        <h4 className="font-pixel text-lg sm:text-2xl font-bold text-[#F6E8C8] group-hover:text-[#FCC27D] transition-colors truncate">
+        <h4 className="font-pixel text-lg sm:text-2xl font-bold text-[#F4F4F5] group-hover:text-white transition-colors truncate">
           {item.title}
         </h4>
       </div>

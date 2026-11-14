@@ -40,7 +40,7 @@ export default function Home() {
         <header className="flex flex-col gap-4 xl:flex-row xl:items-end xl:justify-between">
           <div>
             <HomeGreeting />
-            <p className="mt-1 max-w-xl font-mono-code text-[11px] text-[#B9A9C5]">
+            <p className="mt-1 max-w-xl font-mono-code text-[11px] text-[#A1A1AA]">
               Selected systems, collaborations, and the public archive.
             </p>
           </div>
@@ -51,21 +51,21 @@ export default function Home() {
               <a
                 href={`mailto:${CONTACT_EMAIL}`}
                 aria-label="Email Ferta Junindi"
-                className="grid size-10 place-items-center rounded-full border border-[#F6E8C8]/10 text-[#B9A9C5] transition-colors hover:border-[#FCC27D]/50 hover:text-[#FCC27D] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#37D1E3]"
+                className="grid size-10 place-items-center rounded-full border border-white/10 text-[#A1A1AA] transition-colors hover:border-white/20 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/40"
               >
                 <Mail className="size-4" />
               </a>
               <Link
                 href="/about"
                 aria-label="About Ferta Junindi"
-                className="relative rounded-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#37D1E3]"
+                className="relative rounded-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/40"
               >
                 <img
                   src="/images/profile.jpg"
                   alt={PROFILE.name}
-                  className="size-10 rounded-xl border border-[#FCC27D]/40 object-cover"
+                  className="size-10 rounded-xl border border-white/20 object-cover"
                 />
-                <span className="absolute -bottom-0.5 -right-0.5 size-3 rounded-full border-2 border-[#0E0926] bg-[#FCC27D]" />
+                <span className="absolute -bottom-0.5 -right-0.5 size-3 rounded-full border-2 border-[#09090B] bg-[#10B981]" />
               </Link>
             </div>
           </div>

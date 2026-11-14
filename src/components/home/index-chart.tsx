@@ -7,17 +7,17 @@ export function IndexChart({ stats }: { stats: DashboardStats }) {
     {
       label: "Selected works",
       value: stats.selectedWorks,
-      color: "#B95465",
+      color: "#E4E4E7",
     },
     {
       label: "Collaborations",
       value: stats.collaborations,
-      color: "#FCC27D",
+      color: "#A1A1AA",
     },
     {
       label: "Archive repos",
       value: stats.archiveCount,
-      color: "#578CB3",
+      color: "#52525B",
     },
   ];
   const total = segments.reduce((sum, segment) => sum + segment.value, 0);
@@ -31,12 +31,12 @@ export function IndexChart({ stats }: { stats: DashboardStats }) {
           <p className="dash-eyebrow">Index mix</p>
           <h2
             id="index-heading"
-            className="mt-1 font-pixel text-xl font-bold text-[#F6E8C8]"
+            className="mt-1 font-pixel text-xl font-bold text-[#F4F4F5]"
           >
             WHAT IS INSIDE
           </h2>
         </div>
-        <span className="rounded-full border border-[#F6E8C8]/10 px-2.5 py-1 font-mono-code text-[10px] text-[#B9A9C5]/90">
+        <span className="rounded-full border border-white/10 px-2.5 py-1 font-mono-code text-[10px] text-[#A1A1AA]">
           {total} entries
         </span>
       </div>
@@ -53,7 +53,7 @@ export function IndexChart({ stats }: { stats: DashboardStats }) {
               cy="50"
               r="42"
               fill="none"
-              stroke="rgba(246,232,200,0.07)"
+              stroke="rgba(255,255,255,0.06)"
               strokeWidth="10"
             />
             {segments.map((segment) => {
@@ -76,10 +76,10 @@ export function IndexChart({ stats }: { stats: DashboardStats }) {
             })}
           </svg>
           <div className="absolute text-center">
-            <p className="font-pixel text-2xl font-bold text-[#F6E8C8]">
+            <p className="font-pixel text-2xl font-bold text-[#F4F4F5]">
               {total}
             </p>
-            <p className="font-mono-code text-[9px] uppercase tracking-[0.16em] text-[#B9A9C5]/80">
+            <p className="font-mono-code text-[9px] uppercase tracking-[0.16em] text-[#A1A1AA]">
               indexed
             </p>
           </div>
@@ -92,13 +92,13 @@ export function IndexChart({ stats }: { stats: DashboardStats }) {
                 className="size-2 shrink-0 rounded-full"
                 style={{ backgroundColor: segment.color }}
               />
-              <span className="min-w-0 flex-1 truncate font-mono-code text-[10px] text-[#B9A9C5]">
+              <span className="min-w-0 flex-1 truncate font-mono-code text-[10px] text-[#A1A1AA]">
                 {segment.label}
               </span>
-              <span className="font-mono-code text-[10px] text-[#F6E8C8]">
+              <span className="font-mono-code text-[10px] text-[#F4F4F5]">
                 {segment.value}
               </span>
-              <span className="w-8 text-right font-mono-code text-[9px] text-[#B9A9C5]/75">
+              <span className="w-8 text-right font-mono-code text-[9px] text-[#A1A1AA]/75">
                 {Math.round((segment.value / total) * 100)}%
               </span>
             </div>
@@ -108,7 +108,7 @@ export function IndexChart({ stats }: { stats: DashboardStats }) {
 
       <Link
         href="/projects"
-        className="mt-4 inline-flex items-center gap-1.5 rounded font-mono-code text-[11px] text-[#FCC27D]/90 transition-colors hover:text-[#FCC27D] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#37D1E3]"
+        className="mt-4 inline-flex items-center gap-1.5 rounded font-mono-code text-[11px] text-[#A1A1AA] transition-colors hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/40"
       >
         Open the project launcher
         <ArrowRight className="size-3.5" />

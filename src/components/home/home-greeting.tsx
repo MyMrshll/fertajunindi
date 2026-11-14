@@ -19,7 +19,7 @@ export function HomeGreeting() {
   return (
     <div>
       <p className="dash-eyebrow">{greeting}</p>
-      <h1 className="mt-1 font-pixel text-2xl font-bold tracking-tight text-[#F6E8C8] sm:text-3xl">
+      <h1 className="mt-1 font-pixel text-2xl font-bold tracking-tight text-[#F4F4F5] sm:text-3xl">
         STUDIO DASHBOARD
       </h1>
     </div>

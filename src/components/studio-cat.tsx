@@ -164,7 +164,7 @@ export function StudioCat({
           id="studio-cat-bubble"
           aria-hidden={!open}
           className={cn(
-            "relative mb-3 w-full max-w-[19rem] rounded-xl border border-[#F6E8C8]/15 bg-[#191740]/95 p-4 pr-9 text-left shadow-[0_20px_60px_rgba(0,0,0,0.55)] backdrop-blur-md transition-all duration-300 ease-out sm:absolute sm:bottom-full sm:right-0 sm:mb-4 sm:w-[min(19rem,calc(100vw-2rem))]",
+            "relative mb-3 w-full max-w-[19rem] rounded-xl border border-white/10 bg-[#121215] p-4 pr-9 text-left shadow-[0_20px_60px_rgba(0,0,0,0.55)] backdrop-blur-md transition-all duration-300 ease-out sm:absolute sm:bottom-full sm:right-0 sm:mb-4 sm:w-[min(19rem,calc(100vw-2rem))]",
             bubbleAlign === "end"
               ? "left-auto right-0 origin-bottom-right"
               : bubbleAlign === "start"
@@ -178,7 +178,7 @@ export function StudioCat({
           <span
             aria-hidden="true"
             className={cn(
-              "absolute -bottom-[7px] size-3.5 rotate-45 border-b border-r border-[#F6E8C8]/15 bg-[#191740]",
+              "absolute -bottom-[7px] size-3.5 rotate-45 border-b border-r border-white/10 bg-[#121215]",
               bubbleAlign === "end"
                 ? "left-auto right-6"
                 : bubbleAlign === "start"
@@ -192,22 +192,22 @@ export function StudioCat({
             onClick={() => setOpen(false)}
             tabIndex={open ? 0 : -1}
             aria-label="Dismiss cat message"
-            className="absolute right-1.5 top-1.5 grid size-8 place-items-center rounded-md text-[#B9A9C5]/90 transition-colors hover:bg-[#F6E8C8]/10 hover:text-[#F6E8C8] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#37D1E3]"
+            className="absolute right-1.5 top-1.5 grid size-8 place-items-center rounded-md text-[#A1A1AA] transition-colors hover:bg-white/10 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/40"
           >
             <X className="size-3.5" />
           </button>
 
-          <p className="font-mono-code text-[11px] uppercase tracking-[0.2em] text-[#FCC27D]">
+          <p className="font-mono-code text-[11px] uppercase tracking-[0.2em] text-[#E4E4E7]">
             Pixel · Studio cat
           </p>
 
           <p
             aria-hidden="true"
-            className="mt-1.5 font-mono-code text-xs leading-relaxed text-[#F6E8C8]"
+            className="mt-1.5 font-mono-code text-xs leading-relaxed text-[#F4F4F5]"
           >
             {typed}
             {!reducedMotion && typed.length < MESSAGE.length && (
-              <span className="ml-0.5 inline-block h-3 w-1.5 translate-y-[1px] animate-pulse bg-[#FCC27D]" />
+              <span className="ml-0.5 inline-block h-3 w-1.5 translate-y-[1px] animate-pulse bg-white" />
             )}
           </p>
 
@@ -230,7 +230,7 @@ export function StudioCat({
           aria-controls="studio-cat-bubble"
           aria-label={open ? "Hide Pixel's message" : "Show Pixel's message"}
           title="Pixel — click to talk"
-          className="relative block rounded-xl transition-transform duration-200 hover:scale-[1.03] active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#37D1E3] focus-visible:ring-offset-2 focus-visible:ring-offset-[#0E0926]"
+          className="relative block rounded-xl transition-transform duration-200 hover:scale-[1.03] active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/40 focus-visible:ring-offset-2 focus-visible:ring-offset-[#09090B]"
         >
           <span className="studio-cat-sprite cat-idle block">
             <PixelCat />

@@ -13,12 +13,12 @@ export function StackChart({ stats }: { stats: DashboardStats }) {
           <p className="dash-eyebrow">Build footprint</p>
           <h2
             id="stack-heading"
-            className="mt-1 font-pixel text-xl font-bold text-[#F6E8C8]"
+            className="mt-1 font-pixel text-xl font-bold text-[#F4F4F5]"
           >
             STACK IN THE INDEX
           </h2>
         </div>
-        <span className="rounded-full border border-[#F6E8C8]/10 px-2.5 py-1 font-mono-code text-[10px] text-[#B9A9C5]/90">
+        <span className="rounded-full border border-white/10 px-2.5 py-1 font-mono-code text-[10px] text-[#A1A1AA]">
           {stats.selectedWorks} works
         </span>
       </div>
@@ -31,7 +31,7 @@ export function StackChart({ stats }: { stats: DashboardStats }) {
           {[0, 1, 2, 3].map((line) => (
             <span
               key={line}
-              className="border-t border-dashed border-[#F6E8C8]/10"
+              className="border-t border-dashed border-white/10"
             />
           ))}
         </div>
@@ -42,19 +42,19 @@ export function StackChart({ stats }: { stats: DashboardStats }) {
               key={item.name}
               className="flex h-full min-w-0 flex-1 flex-col items-center justify-end"
             >
-              <span className="font-mono-code text-[10px] text-[#B9A9C5]">
+              <span className="font-mono-code text-[10px] text-[#A1A1AA]">
                 {item.count}
               </span>
               <span className="flex w-full max-w-14 flex-1 items-end pt-1.5">
                 <span
-                  className="w-full rounded-t-lg border border-b-0 border-[#FCC27D]/20 bg-gradient-to-t from-[#A94A5A] via-[#B95465] to-[#FCC27D] shadow-[0_0_18px_rgba(185,84,101,0.18)]"
+                  className="w-full rounded-t-lg border border-b-0 border-white/20 bg-[#27272A] transition-colors hover:bg-[#3F3F46]"
                   style={{
                     height: `${Math.max((item.count / max) * 100, 4)}%`,
                   }}
                   title={`${item.name}: ${item.count}`}
                 />
               </span>
-              <span className="mt-2 flex h-8 w-full items-start justify-center truncate font-mono-code text-[9px] leading-tight text-[#B9A9C5]/85 sm:text-[10px]">
+              <span className="mt-2 flex h-8 w-full items-start justify-center truncate font-mono-code text-[9px] leading-tight text-[#A1A1AA] sm:text-[10px]">
                 {item.name}
               </span>
             </li>
@@ -62,7 +62,7 @@ export function StackChart({ stats }: { stats: DashboardStats }) {
         </ul>
       </div>
 
-      <p className="mt-3 border-t border-[#F6E8C8]/10 pt-3 font-mono-code text-[10px] text-[#B9A9C5]/80">
+      <p className="mt-3 border-t border-white/10 pt-3 font-mono-code text-[10px] text-[#A1A1AA]/80">
         Tags counted across {stats.selectedWorks} selected works.
       </p>
     </section>

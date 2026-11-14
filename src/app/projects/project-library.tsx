@@ -53,20 +53,20 @@ export function ProjectLibrary({ projects }: { projects: Project[] }) {
             <p className="dash-eyebrow">PROJECT LIBRARY</p>
             <h2
               id="library-heading"
-              className="mt-1 font-pixel text-xl font-bold text-[#F6E8C8] sm:text-2xl"
+              className="mt-1 font-pixel text-xl font-bold text-[#F4F4F5] sm:text-2xl"
             >
               SELECTED WORKS
             </h2>
           </div>
           <div className="flex items-center gap-2">
-            <span className="rounded-full border border-[#F6E8C8]/10 px-2.5 py-1 font-mono-code text-[10px] text-[#B9A9C5]/90">
+            <span className="rounded-full border border-white/10 px-2.5 py-1 font-mono-code text-[10px] text-[#A1A1AA]">
               {projects.length} titles
             </span>
             <button
               type="button"
               onClick={() => scroll(-1)}
               aria-label="Scroll projects left"
-              className="grid size-8 place-items-center rounded-full border border-[#F6E8C8]/10 text-[#B9A9C5] transition-colors hover:border-[#FCC27D]/50 hover:text-[#FCC27D] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#37D1E3]"
+              className="grid size-8 place-items-center rounded-full border border-white/10 text-[#A1A1AA] transition-colors hover:border-white/20 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/40"
             >
               <ChevronLeft className="size-4" />
             </button>
@@ -74,7 +74,7 @@ export function ProjectLibrary({ projects }: { projects: Project[] }) {
               type="button"
               onClick={() => scroll(1)}
               aria-label="Scroll projects right"
-              className="grid size-8 place-items-center rounded-full border border-[#F6E8C8]/10 text-[#B9A9C5] transition-colors hover:border-[#FCC27D]/50 hover:text-[#FCC27D] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#37D1E3]"
+              className="grid size-8 place-items-center rounded-full border border-white/10 text-[#A1A1AA] transition-colors hover:border-white/20 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/40"
             >
               <ChevronRight className="size-4" />
             </button>
@@ -96,9 +96,9 @@ export function ProjectLibrary({ projects }: { projects: Project[] }) {
               type="button"
               onClick={() => openProject(project)}
               aria-label={`Inspect ${project.title}`}
-              className="group w-[208px] shrink-0 text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#37D1E3] 2xl:w-[248px]"
+              className="group w-[208px] shrink-0 text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/40 2xl:w-[248px]"
             >
-              <div className="relative aspect-[2/1] overflow-hidden rounded-xl border border-[#F6E8C8]/10 bg-[#191740]">
+              <div className="relative aspect-[2/1] overflow-hidden rounded-xl border border-white/10 bg-[#18181B]">
                 <ImageWithSkeleton
                   src={project.image}
                   alt={project.title}
@@ -106,20 +106,19 @@ export function ProjectLibrary({ projects }: { projects: Project[] }) {
                   wrapperClassName="h-full w-full"
                   className="transition-transform duration-500 group-hover:scale-[1.04]"
                 />
-                <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
-                <span className="absolute bottom-2 left-2 rounded-full border border-[#F6E8C8]/15 bg-black/65 px-2 py-0.5 font-mono-code text-[10px] text-[#F6E8C8]/85">
+                <span className="absolute bottom-2 left-2 rounded-full border border-white/15 bg-black/75 px-2 py-0.5 font-mono-code text-[10px] text-white">
                   #{String(project.id).padStart(2, "0")}
                 </span>
                 {project.year && (
-                  <span className="absolute right-2 top-2 rounded-full border border-[#B95465]/35 bg-[#34182D]/80 px-2 py-0.5 font-mono-code text-[10px] text-[#FCC27D]">
+                  <span className="absolute right-2 top-2 rounded-full border border-white/15 bg-black/75 px-2 py-0.5 font-mono-code text-[10px] text-[#E4E4E7]">
                     {project.year}
                   </span>
                 )}
               </div>
-              <p className="mt-2.5 truncate font-mono-code text-[10px] uppercase tracking-[0.14em] text-[#FCC27D]">
+              <p className="mt-2.5 truncate font-mono-code text-[10px] uppercase tracking-[0.14em] text-[#A1A1AA]">
                 {project.category}
               </p>
-              <h3 className="mt-0.5 truncate font-pixel text-base font-bold text-[#F6E8C8] transition-colors group-hover:text-[#FCC27D]">
+              <h3 className="mt-0.5 truncate font-pixel text-base font-bold text-[#F4F4F5] transition-colors group-hover:text-white">
                 {project.title}
               </h3>
             </button>

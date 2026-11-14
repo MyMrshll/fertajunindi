@@ -27,7 +27,7 @@ export default function ProjectsLoading() {
 
         <div className="grid grid-cols-1 gap-4 xl:grid-cols-[minmax(0,1fr)_360px] xl:gap-5">
           <div className="min-w-0 space-y-4 sm:space-y-5">
-            <section className="relative overflow-hidden rounded-3xl border border-[#F6E8C8]/15 bg-[#191740] p-5 sm:p-7">
+            <section className="relative overflow-hidden rounded-3xl border border-white/10 bg-[#121215] p-5 sm:p-7">
               <div className="skeleton-shimmer h-2.5 w-32 rounded-full" />
               <div className="skeleton-shimmer mt-4 h-10 w-64 max-w-full rounded-lg sm:h-12 sm:w-80" />
               <div className="skeleton-shimmer mt-4 h-3 w-full max-w-md rounded-full" />

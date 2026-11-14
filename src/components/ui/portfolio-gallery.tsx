@@ -180,14 +180,14 @@ export function PortfolioGallery({
               animate={{ opacity: 1, y: 0 }}
               className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-card/90 border border-border text-foreground"
             >
-              <Terminal className="size-3 text-[#FCC27D] shrink-0" />
+              <Terminal className="size-3 text-white shrink-0" />
               <span className="font-semibold text-foreground">{projects[hoveredIndex].title}</span>
               <span className="text-muted-foreground/40">•</span>
               <span className="text-muted-foreground">{projects[hoveredIndex].category}</span>
             </motion.div>
           ) : (
             <span className="tracking-wide flex items-center gap-2">
-              <span className="size-1.5 rounded-full bg-[#FCC27D] shrink-0" />
+              <span className="size-1.5 rounded-full bg-[#10B981] shrink-0" />
               <span>{projects.length} Production Systems · 2025–2026</span>
             </span>
           )}
@@ -246,7 +246,7 @@ export function PortfolioGallery({
                   style={{
                     transformStyle: "preserve-3d",
                   }}
-                  className="flex flex-col justify-between rounded-xl overflow-hidden bg-card border border-border shadow-lg transition-colors duration-200 w-[160px] lg:w-[176px] xl:w-[196px] h-[310px] xl:h-[326px] group hover:border-[#37D1E3]/80 hover:shadow-[0_0_20px_rgba(185,84,101,0.24)]"
+                  className="flex flex-col justify-between rounded-xl overflow-hidden bg-card border border-border shadow-lg transition-colors duration-200 w-[160px] lg:w-[176px] xl:w-[196px] h-[310px] xl:h-[326px] group hover:border-white/30 hover:shadow-2xl"
                 >
                   {/* Fixed-Height Image Banner */}
                   <div className="relative h-[160px] xl:h-[172px] w-full overflow-hidden bg-muted/40 shrink-0">
@@ -257,14 +257,13 @@ export function PortfolioGallery({
                       loading="eager"
                       decoding="async"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-card via-card/20 to-transparent pointer-events-none" />
                   </div>
 
                   {/* Uniform Card Content & Baseline */}
                   <div className="p-3.5 flex flex-col justify-between flex-1 gap-2 min-w-0">
                     <div className="flex flex-col gap-1 min-w-0">
                       <div className="flex items-center justify-between gap-2 text-xs">
-                        <span className="text-[#FCC27D] font-medium tracking-wide uppercase truncate">
+                        <span className="text-[#A1A1AA] font-medium tracking-wide uppercase truncate">
                           {item.category}
                         </span>
                         <span className="text-muted-foreground tabular-nums shrink-0">
@@ -272,7 +271,7 @@ export function PortfolioGallery({
                         </span>
                       </div>
 
-                      <h4 className="font-pixel text-base xl:text-lg font-bold text-foreground tracking-tight truncate group-hover:text-[#FCC27D] transition-colors">
+                      <h4 className="font-pixel text-base xl:text-lg font-bold text-foreground tracking-tight truncate group-hover:text-white transition-colors">
                         {item.title}
                       </h4>
                     </div>
@@ -323,11 +322,10 @@ export function PortfolioGallery({
                   loading="lazy"
                   decoding="async"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-card via-card/70 to-transparent pointer-events-none" />
               </div>
               <div className="p-3.5 flex flex-col gap-2">
                 <div className="flex items-center justify-between gap-2 text-xs">
-                  <span className="text-[#FCC27D] font-medium uppercase truncate">
+                  <span className="text-[#A1A1AA] font-medium uppercase truncate">
                     {item.category}
                   </span>
                   <span className="text-muted-foreground tabular-nums shrink-0">{item.year}</span>
@@ -356,7 +354,7 @@ export function PortfolioGallery({
               key={p.title}
               className={cn(
                 "size-1.5 rounded-full transition-all duration-300",
-                i === mobileActiveIndex ? "bg-[#FCC27D] w-4" : "bg-muted-foreground/30"
+                i === mobileActiveIndex ? "bg-white w-4" : "bg-muted-foreground/30"
               )}
             />
           ))}

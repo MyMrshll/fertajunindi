@@ -22,13 +22,13 @@ export default function AboutPage() {
       <div className="relative flex min-h-[calc(100dvh-6rem)] flex-col justify-between pb-2">
         {/* 1. Header (Left column top on desktop) */}
         <header className="relative z-10 order-1 w-full max-w-2xl lg:max-w-[430px] xl:max-w-[500px] 2xl:max-w-xl">
-          <p className="font-mono-code text-[11px] uppercase tracking-[0.22em] text-[#FCC27D]">
+          <p className="font-mono-code text-[11px] uppercase tracking-[0.22em] text-[#A1A1AA]">
             Profile
           </p>
-          <h1 className="mt-2 font-pixel text-3xl font-bold text-[#F6E8C8] pixel-text-shadow sm:text-4xl lg:text-5xl">
+          <h1 className="mt-2 font-pixel text-3xl font-bold text-[#F4F4F5] pixel-text-shadow sm:text-4xl lg:text-5xl">
             ABOUT
           </h1>
-          <p className="mt-3 font-mono-code text-sm leading-relaxed text-[#B9A9C5]">
+          <p className="mt-3 font-mono-code text-sm leading-relaxed text-[#A1A1AA]">
             Systems engineer and fullstack builder. I design compilers, distributed
             tools, and practical software that lasts.
           </p>
@@ -44,23 +44,23 @@ export default function AboutPage() {
         {/* 3. Bio & Stack Section (Left column body on desktop, follows Header) */}
         <div className="relative z-10 order-3 w-full max-w-2xl lg:max-w-[430px] xl:max-w-[500px] 2xl:max-w-xl">
           <section className="mt-2 lg:mt-6">
-            <div className="flex flex-wrap items-center gap-x-2 gap-y-1 font-mono-code text-xs text-[#FCC27D]">
+            <div className="flex flex-wrap items-center gap-x-2 gap-y-1 font-mono-code text-xs text-[#E4E4E7]">
               <span className="inline-flex items-center gap-1.5">
                 <MapPin className="size-3.5 shrink-0" />
                 <span>{PROFILE.location}</span>
               </span>
-              <span className="hidden text-[#B9A9C5]/40 min-[360px]:inline">•</span>
-              <span className="text-[#B9A9C5]">
+              <span className="hidden text-white/20 min-[360px]:inline">•</span>
+              <span className="text-[#A1A1AA]">
                 {PROFILE.role} at {PROFILE.company}
               </span>
             </div>
 
-            <h2 className="mt-4 font-pixel text-2xl font-bold leading-tight text-[#F6E8C8] pixel-text-shadow sm:text-3xl">
+            <h2 className="mt-4 font-pixel text-2xl font-bold leading-tight text-[#F4F4F5] pixel-text-shadow sm:text-3xl">
               SYSTEMS &amp; SOFTWARE
               <br className="hidden sm:inline" /> ENGINEERING
             </h2>
 
-            <div className="mt-4 space-y-4 font-mono-code text-sm leading-relaxed text-[#B9A9C5]">
+            <div className="mt-4 space-y-4 font-mono-code text-sm leading-relaxed text-[#A1A1AA]">
               <p>
                 I am a systems engineer and fullstack developer based in Indonesia.
                 At Nuanscape, I lead engineering across web platforms, automated
@@ -74,14 +74,14 @@ export default function AboutPage() {
             </div>
 
             <div className="mt-6">
-              <p className="font-mono-code text-[11px] uppercase tracking-[0.22em] text-[#B9A9C5]/85">
+              <p className="font-mono-code text-[11px] uppercase tracking-[0.22em] text-[#A1A1AA]/85">
                 Core stack
               </p>
               <ul className="mt-3 flex flex-wrap gap-2">
                 {STACK.map((tech) => (
                   <li
                     key={tech}
-                    className="rounded-full border border-[#F6E8C8]/10 bg-[#2A2C6A]/25 px-3 py-1 font-mono-code text-xs text-[#B9A9C5]"
+                    className="rounded-full border border-white/10 bg-white/5 px-3 py-1 font-mono-code text-xs text-[#A1A1AA]"
                   >
                     {tech}
                   </li>
@@ -92,16 +92,16 @@ export default function AboutPage() {
             <div className="mt-7 flex flex-wrap items-center gap-2.5 sm:gap-3">
               <Link
                 href="/projects"
-                className="group inline-flex items-center gap-3 rounded-full bg-primary py-1.5 pl-5 pr-2 font-mono-code text-xs font-bold text-primary-foreground transition-all duration-200 hover:scale-[1.02] hover:bg-[#983E4F] active:scale-[0.98] sm:text-sm"
+                className="group inline-flex items-center gap-3 rounded-full border border-white/20 bg-[#27272A] py-1.5 pl-5 pr-2 font-mono-code text-xs font-bold text-white transition-all duration-200 hover:scale-[1.02] hover:bg-[#3F3F46] active:scale-[0.98] sm:text-sm"
               >
                 <span>View Projects</span>
-                <span className="flex size-6 items-center justify-center rounded-full bg-primary-foreground text-primary transition-transform duration-200 group-hover:translate-x-0.5">
+                <span className="flex size-6 items-center justify-center rounded-full bg-white text-black transition-transform duration-200 group-hover:translate-x-0.5">
                   <ArrowRight className="size-3.5" />
                 </span>
               </Link>
               <a
                 href={`mailto:${CONTACT_EMAIL}`}
-                className="inline-flex items-center gap-2 rounded-full border border-[#F6E8C8]/25 px-5 py-2 font-mono-code text-xs text-[#F6E8C8]/90 transition-colors duration-200 hover:border-[#B95465]/60 hover:text-[#FCC27D] sm:text-sm"
+                className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-5 py-2 font-mono-code text-xs text-[#F4F4F5] transition-colors duration-200 hover:border-white/30 hover:text-white sm:text-sm"
               >
                 <Mail className="size-3.5" />
                 Get in Touch
@@ -111,17 +111,17 @@ export default function AboutPage() {
         </div>
 
         {/* 4. Bottom Strip */}
-        <section className="relative z-10 order-4 mt-8 border-t border-[#F6E8C8]/10 pt-5 lg:mt-10 lg:pt-6">
+        <section className="relative z-10 order-4 mt-8 border-t border-white/10 pt-5 lg:mt-10 lg:pt-6">
           <div className="flex flex-col justify-between gap-4 sm:flex-row sm:items-center">
-            <p className="max-w-xl font-mono-code text-sm leading-relaxed text-[#B9A9C5]">
+            <p className="max-w-xl font-mono-code text-sm leading-relaxed text-[#A1A1AA]">
               Open for systems engineering, backend architecture, and fullstack
               product builds.
             </p>
             <Link
               href="/contact"
-              className="inline-flex items-center gap-2 rounded font-mono-code text-xs text-[#FCC27D]/90 transition-colors hover:text-[#FCC27D] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#37D1E3]"
+              className="inline-flex items-center gap-2 font-mono-code text-xs text-[#A1A1AA] transition-colors hover:text-white"
             >
-              Contact
+              Start a conversation
               <ArrowRight className="size-3.5" />
             </Link>
           </div>

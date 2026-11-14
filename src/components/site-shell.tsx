@@ -9,6 +9,7 @@ import {
   ArrowUpRight,
   FolderKanban,
   House,
+  Images,
   LayoutDashboard,
   Mail,
   MessageSquare,
@@ -50,6 +51,12 @@ const NAV_ITEMS: RailItem[] = [
     label: "Achievements",
     description: "Awards & milestones",
     Icon: Trophy,
+  },
+  {
+    href: "/gallery",
+    label: "Gallery",
+    description: "Visual archive",
+    Icon: Images,
   },
   {
     href: "/contact",
@@ -281,7 +288,7 @@ export function SiteShell({ children }: { children: React.ReactNode }) {
 
             <nav
               aria-label="Main navigation"
-              className="mb-5 flex items-center gap-1 overflow-x-auto pb-1 [scrollbar-width:none] sm:grid sm:grid-cols-6 lg:hidden"
+              className="mb-5 flex items-center gap-1 overflow-x-auto pb-1 [scrollbar-width:none] sm:grid sm:grid-cols-4 md:grid-cols-7 lg:hidden"
             >
               {NAV_ITEMS.filter((item) => !item.external).map((item) => {
                 const active = pathname === item.href;

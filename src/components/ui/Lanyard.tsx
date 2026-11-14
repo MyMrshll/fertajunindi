@@ -919,7 +919,13 @@ export function Lanyard({
     const frameView = () => {
       const s = settingsRef.current;
       const aspect = view.width / view.height;
-      let viewHeight = layout.height / clamp(s.size, 0.15, 0.9);
+      let targetSize = s.size;
+      if (s.anchor === 'about' && typeof window !== 'undefined') {
+        if (window.innerWidth < 1280 && window.innerWidth >= 1024) {
+          targetSize = Math.min(s.size, 0.48);
+        }
+      }
+      let viewHeight = layout.height / clamp(targetSize, 0.15, 0.9);
       const minimumWidth = layout.width / 0.72;
       if (viewHeight * aspect < minimumWidth) viewHeight = minimumWidth / aspect;
       const viewWidth = viewHeight * aspect;
@@ -933,7 +939,13 @@ export function Lanyard({
       foilUniforms.foilTop.value.set(0.5, 4.5, 8).normalize().transformDirection(camera.matrixWorldInverse);
       const anchorRatio =
         s.anchor === 'about'
-          ? (typeof window !== 'undefined' && window.innerWidth >= 1024 ? 0.76 : 0.5)
+          ? (typeof window !== 'undefined'
+              ? window.innerWidth >= 1440
+                ? 0.75
+                : window.innerWidth >= 1024
+                  ? 0.78
+                  : 0.5
+              : 0.5)
           : (ANCHORS[s.anchor] ?? (typeof s.anchor === 'number' ? s.anchor : 0.5));
       const anchorX = (anchorRatio - 0.5) * viewWidth;
       const anchorY = viewHeight / 2 + 0.2;

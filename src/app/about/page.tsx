@@ -1,14 +1,12 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowRight, Mail } from "lucide-react";
+import { ArrowRight, Mail, MapPin } from "lucide-react";
 import { SiteShell } from "@/components/site-shell";
-import { GithubIcon, InstagramIcon } from "@/components/icons";
 import {
   CONTACT_EMAIL,
-  GITHUB_URL,
-  INSTAGRAM_URL,
   PROFILE,
 } from "@/lib/projects";
+import { AboutLanyard } from "@/components/about/about-lanyard";
 
 const STACK = ["Go", "TypeScript", "Python", "PostgreSQL", "Docker", "Linux"];
 
@@ -21,142 +19,113 @@ export const metadata: Metadata = {
 export default function AboutPage() {
   return (
     <SiteShell>
-      <div className="pb-2">
-      <header className="max-w-3xl">
-        <p className="font-mono-code text-[11px] uppercase tracking-[0.22em] text-[#FCC27D]">
-          Profile
-        </p>
-        <h1 className="font-pixel text-3xl sm:text-4xl lg:text-5xl font-bold text-[#F6E8C8] pixel-text-shadow mt-2">
-          ABOUT
-        </h1>
-        <p className="font-mono-code text-sm text-[#B9A9C5] leading-relaxed mt-3 max-w-2xl">
-          Systems engineer and fullstack builder. I design compilers, distributed
-          tools, and practical software that lasts.
-        </p>
-      </header>
+      <div className="relative flex min-h-[calc(100dvh-6rem)] flex-col justify-between pb-2">
+        {/* 1. Header (Left column top on desktop) */}
+        <header className="relative z-10 order-1 w-full max-w-2xl lg:max-w-[430px] xl:max-w-[500px] 2xl:max-w-xl">
+          <p className="font-mono-code text-[11px] uppercase tracking-[0.22em] text-[#FCC27D]">
+            Profile
+          </p>
+          <h1 className="mt-2 font-pixel text-3xl font-bold text-[#F6E8C8] pixel-text-shadow sm:text-4xl lg:text-5xl">
+            ABOUT
+          </h1>
+          <p className="mt-3 font-mono-code text-sm leading-relaxed text-[#B9A9C5]">
+            Systems engineer and fullstack builder. I design compilers, distributed
+            tools, and practical software that lasts.
+          </p>
+        </header>
 
-      <div className="mt-10 grid grid-cols-1 xl:grid-cols-[minmax(0,1fr)_360px] 2xl:grid-cols-[minmax(0,1fr)_400px] gap-8 xl:gap-14 items-start">
-        <section>
-          <h2 className="font-pixel text-2xl sm:text-3xl font-bold text-[#F6E8C8] pixel-text-shadow leading-tight">
-            SYSTEMS &amp; SOFTWARE
-            <br className="hidden sm:inline" /> ENGINEERING
-          </h2>
+        {/* 2. SINGLE RESPONSIVE 3D FLOATING LANYARD:
+            - In-flow on mobile right below Header (h-[340px] sm:h-[380px])
+            - Absolute on desktop (lg:absolute lg:-top-10 xl:-top-12 lg:h-[calc(100%+2.5rem)]) suspended from ceiling */}
+        <div className="relative order-2 my-2 h-[340px] w-full shrink-0 pointer-events-none sm:h-[380px] lg:absolute lg:-top-10 xl:-top-12 lg:inset-x-0 lg:my-0 lg:h-[calc(100%+2.5rem)] xl:h-[calc(100%+3rem)] lg:w-full z-20">
+          <AboutLanyard className="h-full w-full" />
+        </div>
 
-          <div className="mt-4 max-w-2xl space-y-4 font-mono-code text-sm leading-relaxed text-[#B9A9C5]">
-            <p>
-              I am a systems engineer and fullstack developer based in Indonesia.
-              At Nuanscape, I lead engineering across web platforms, automated
-              agent pipelines, and backend infrastructure.
-            </p>
-            <p>
-              Most of my work centers on Go, TypeScript, and Python, building
-              document compilers, low-latency APIs, and production runtimes that
-              stay straightforward to operate.
-            </p>
-          </div>
-
-          <div className="mt-7">
-            <p className="font-mono-code text-[11px] uppercase tracking-[0.22em] text-[#B9A9C5]/85">
-              Core stack
-            </p>
-            <ul className="mt-3 flex flex-wrap gap-2">
-              {STACK.map((tech) => (
-                <li
-                  key={tech}
-                  className="font-mono-code text-xs text-[#B9A9C5] px-3 py-1 rounded-full border border-[#F6E8C8]/10 bg-[#2A2C6A]/25"
-                >
-                  {tech}
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <div className="mt-7 flex flex-wrap items-center gap-2.5 sm:gap-3">
-            <Link
-              href="/projects"
-              className="group inline-flex items-center gap-3 pl-5 pr-2 py-1.5 rounded-full bg-primary hover:bg-[#983E4F] text-primary-foreground font-mono-code font-bold text-xs sm:text-sm transition-all duration-200 hover:scale-[1.02] active:scale-[0.98]"
-            >
-              <span>View Projects</span>
-              <span className="size-6 rounded-full bg-primary-foreground text-primary flex items-center justify-center transition-transform duration-200 group-hover:translate-x-0.5">
-                <ArrowRight className="size-3.5" />
+        {/* 3. Bio & Stack Section (Left column body on desktop, follows Header) */}
+        <div className="relative z-10 order-3 w-full max-w-2xl lg:max-w-[430px] xl:max-w-[500px] 2xl:max-w-xl">
+          <section className="mt-2 lg:mt-6">
+            <div className="flex flex-wrap items-center gap-x-2 gap-y-1 font-mono-code text-xs text-[#FCC27D]">
+              <span className="inline-flex items-center gap-1.5">
+                <MapPin className="size-3.5 shrink-0" />
+                <span>{PROFILE.location}</span>
               </span>
-            </Link>
-            <a
-              href={`mailto:${CONTACT_EMAIL}`}
-              className="inline-flex items-center gap-2 px-5 py-2 rounded-full border border-[#F6E8C8]/25 text-[#F6E8C8]/90 hover:text-[#FCC27D] hover:border-[#B95465]/60 font-mono-code text-xs sm:text-sm transition-colors duration-200"
+              <span className="hidden text-[#B9A9C5]/40 min-[360px]:inline">•</span>
+              <span className="text-[#B9A9C5]">
+                {PROFILE.role} at {PROFILE.company}
+              </span>
+            </div>
+
+            <h2 className="mt-4 font-pixel text-2xl font-bold leading-tight text-[#F6E8C8] pixel-text-shadow sm:text-3xl">
+              SYSTEMS &amp; SOFTWARE
+              <br className="hidden sm:inline" /> ENGINEERING
+            </h2>
+
+            <div className="mt-4 space-y-4 font-mono-code text-sm leading-relaxed text-[#B9A9C5]">
+              <p>
+                I am a systems engineer and fullstack developer based in Indonesia.
+                At Nuanscape, I lead engineering across web platforms, automated
+                agent pipelines, and backend infrastructure.
+              </p>
+              <p>
+                Most of my work centers on Go, TypeScript, and Python, building
+                document compilers, low-latency APIs, and production runtimes that
+                stay straightforward to operate.
+              </p>
+            </div>
+
+            <div className="mt-6">
+              <p className="font-mono-code text-[11px] uppercase tracking-[0.22em] text-[#B9A9C5]/85">
+                Core stack
+              </p>
+              <ul className="mt-3 flex flex-wrap gap-2">
+                {STACK.map((tech) => (
+                  <li
+                    key={tech}
+                    className="rounded-full border border-[#F6E8C8]/10 bg-[#2A2C6A]/25 px-3 py-1 font-mono-code text-xs text-[#B9A9C5]"
+                  >
+                    {tech}
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div className="mt-7 flex flex-wrap items-center gap-2.5 sm:gap-3">
+              <Link
+                href="/projects"
+                className="group inline-flex items-center gap-3 rounded-full bg-primary py-1.5 pl-5 pr-2 font-mono-code text-xs font-bold text-primary-foreground transition-all duration-200 hover:scale-[1.02] hover:bg-[#983E4F] active:scale-[0.98] sm:text-sm"
+              >
+                <span>View Projects</span>
+                <span className="flex size-6 items-center justify-center rounded-full bg-primary-foreground text-primary transition-transform duration-200 group-hover:translate-x-0.5">
+                  <ArrowRight className="size-3.5" />
+                </span>
+              </Link>
+              <a
+                href={`mailto:${CONTACT_EMAIL}`}
+                className="inline-flex items-center gap-2 rounded-full border border-[#F6E8C8]/25 px-5 py-2 font-mono-code text-xs text-[#F6E8C8]/90 transition-colors duration-200 hover:border-[#B95465]/60 hover:text-[#FCC27D] sm:text-sm"
+              >
+                <Mail className="size-3.5" />
+                Get in Touch
+              </a>
+            </div>
+          </section>
+        </div>
+
+        {/* 4. Bottom Strip */}
+        <section className="relative z-10 order-4 mt-8 border-t border-[#F6E8C8]/10 pt-5 lg:mt-10 lg:pt-6">
+          <div className="flex flex-col justify-between gap-4 sm:flex-row sm:items-center">
+            <p className="max-w-xl font-mono-code text-sm leading-relaxed text-[#B9A9C5]">
+              Open for systems engineering, backend architecture, and fullstack
+              product builds.
+            </p>
+            <Link
+              href="/contact"
+              className="inline-flex items-center gap-2 rounded font-mono-code text-xs text-[#FCC27D]/90 transition-colors hover:text-[#FCC27D] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#37D1E3]"
             >
-              <Mail className="size-3.5" />
-              Get in Touch
-            </a>
+              Contact
+              <ArrowRight className="size-3.5" />
+            </Link>
           </div>
         </section>
-
-        <aside className="rounded-2xl border border-[#F6E8C8]/10 bg-[#191740]/45 p-5 xl:p-6">
-          <img
-            src="/images/profile.jpg"
-            alt="Ferta Junindi"
-            className="size-16 rounded-2xl object-cover border-2 border-[#FCC27D]/70"
-          />
-          <h2 className="font-pixel text-lg font-bold text-[#F6E8C8] mt-4">
-            FERTA JUNINDI
-          </h2>
-          <p className="font-mono-code text-[11px] text-[#B9A9C5] mt-1">
-            {PROFILE.role} at {PROFILE.company}
-          </p>
-
-          <dl className="mt-5 space-y-2.5 font-mono-code text-xs">
-            <div className="flex items-center justify-between gap-3">
-              <dt className="text-[#B9A9C5]/85">Location</dt>
-              <dd className="text-[#F6E8C8]/85 text-right">{PROFILE.location}</dd>
-            </div>
-            <div className="flex items-center justify-between gap-3">
-              <dt className="text-[#B9A9C5]/85">Public repos</dt>
-              <dd className="text-[#F6E8C8]/85 tabular-nums">{PROFILE.publicRepos}</dd>
-            </div>
-            <div className="flex items-center justify-between gap-3">
-              <dt className="text-[#B9A9C5]/85">Followers</dt>
-              <dd className="text-[#F6E8C8]/85 tabular-nums">{PROFILE.followers}</dd>
-            </div>
-          </dl>
-
-          <div className="mt-5 flex items-center gap-2.5">
-            <a
-              href={GITHUB_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="GitHub"
-              className="flex size-9 items-center justify-center rounded-full border border-[#F6E8C8]/10 bg-[#2A2C6A]/25 text-[#B9A9C5] transition-colors duration-200 hover:border-[#FCC27D]/50 hover:text-[#FCC27D] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#37D1E3]"
-            >
-              <GithubIcon className="size-4" />
-            </a>
-            <a
-              href={INSTAGRAM_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Instagram"
-              className="flex size-9 items-center justify-center rounded-full border border-[#F6E8C8]/10 bg-[#2A2C6A]/25 text-[#B9A9C5] transition-colors duration-200 hover:border-[#FCC27D]/50 hover:text-[#FCC27D] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#37D1E3]"
-            >
-              <InstagramIcon className="size-4" />
-            </a>
-          </div>
-        </aside>
-      </div>
-
-      <section className="mt-12 border-t border-[#F6E8C8]/10 pt-6 xl:mt-14 xl:pt-8">
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-          <p className="font-mono-code text-sm text-[#B9A9C5] leading-relaxed max-w-xl">
-            Open for systems engineering, backend architecture, and fullstack
-            product builds.
-          </p>
-          <Link
-            href="/contact"
-            className="inline-flex items-center gap-2 font-mono-code text-xs text-[#FCC27D]/90 hover:text-[#FCC27D] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#37D1E3] rounded"
-          >
-            Contact
-            <ArrowRight className="size-3.5" />
-          </Link>
-        </div>
-      </section>
       </div>
     </SiteShell>
   );

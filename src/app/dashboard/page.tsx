@@ -6,6 +6,7 @@ import { SiteShell } from "@/components/site-shell";
 import { HomeGreeting } from "@/components/home/home-greeting";
 import { HomeSearch } from "@/components/home/home-search";
 import { MetricCards } from "@/components/home/metric-cards";
+import { GitHubContributions } from "@/components/home/github-contributions";
 import { StackChart } from "@/components/home/stack-chart";
 import { IndexChart } from "@/components/home/index-chart";
 import { RecentWork } from "@/components/home/recent-work";
@@ -74,6 +75,8 @@ export default function Home() {
         <Hero />
 
         <MetricCards stats={stats} />
+
+        <GitHubContributions />
 
         <div className="grid grid-cols-1 gap-4 xl:grid-cols-[minmax(0,1.08fr)_minmax(0,0.92fr)] xl:gap-5">
           <StackChart stats={stats} />

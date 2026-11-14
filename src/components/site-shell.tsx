@@ -12,6 +12,7 @@ import {
   LayoutDashboard,
   Mail,
   MessageSquare,
+  Trophy,
   UserRound,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -43,6 +44,12 @@ const NAV_ITEMS: RailItem[] = [
     label: "Projects",
     description: "Selected work",
     Icon: FolderKanban,
+  },
+  {
+    href: "/achievements",
+    label: "Achievements",
+    description: "Awards & milestones",
+    Icon: Trophy,
   },
   {
     href: "/contact",
@@ -261,12 +268,12 @@ export function SiteShell({ children }: { children: React.ReactNode }) {
 
             <nav
               aria-label="Main navigation"
-              className="mb-5 grid grid-cols-5 gap-1 lg:hidden"
+              className="mb-5 flex items-center gap-1 overflow-x-auto pb-1 [scrollbar-width:none] sm:grid sm:grid-cols-6 lg:hidden"
             >
               {NAV_ITEMS.filter((item) => !item.external).map((item) => {
                 const active = pathname === item.href;
                 const className = cn(
-                  "flex min-w-0 items-center justify-center rounded-lg px-1 py-1.5 font-mono-code text-[10px] min-[375px]:text-[11px] sm:text-xs transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/40",
+                  "flex shrink-0 min-w-0 items-center justify-center rounded-lg px-2.5 py-1.5 font-mono-code text-[11px] sm:px-1 sm:text-xs transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/40",
                   active ? "dash-nav-active" : "dash-nav-item"
                 );
 

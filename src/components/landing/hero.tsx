@@ -102,6 +102,12 @@ export default function LandingHero() {
               Projects
             </Link>
             <Link
+              href="/achievements"
+              className="px-1 sm:px-0 py-2 sm:py-1.5 text-foreground/65 hover:text-foreground transition-colors whitespace-nowrap"
+            >
+              Achievements
+            </Link>
+            <Link
               href="/contact"
               className="px-1 sm:px-0 py-2 sm:py-1.5 text-foreground/65 hover:text-foreground transition-colors whitespace-nowrap"
             >

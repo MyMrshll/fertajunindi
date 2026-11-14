@@ -26,9 +26,9 @@ export function AboutLanyard({
       aria-label="Interactive 3D developer pass lanyard"
     >
       <Lanyard
-        frontImage="/images/profile.jpg"
-        backImage="/images/card-back.png"
-        cardColor="#0E0926"
+        frontImage="/images/ferta-foto.png"
+        backImage="/images/Gemini_Generated_Image_o9woxlo9woxlo9wo.jpg"
+        cardColor="#191740"
         finish="glossy"
         size={0.58}
         anchor="about"

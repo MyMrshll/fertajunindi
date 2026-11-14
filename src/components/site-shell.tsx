@@ -3,8 +3,8 @@
 import React from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { GithubIcon, InstagramIcon } from "@/components/icons";
-import { CONTACT_EMAIL, GITHUB_URL, INSTAGRAM_URL } from "@/lib/projects";
+import { GithubIcon, InstagramIcon, LinkedinIcon } from "@/components/icons";
+import { CONTACT_EMAIL, GITHUB_URL, INSTAGRAM_URL, LINKEDIN_URL } from "@/lib/projects";
 import {
   ArrowUpRight,
   FolderKanban,
@@ -64,6 +64,13 @@ const NAV_ITEMS: RailItem[] = [
     Icon: GithubIcon,
     external: true,
   },
+  {
+    href: LINKEDIN_URL,
+    label: "LinkedIn",
+    description: "Professional network",
+    Icon: LinkedinIcon,
+    external: true,
+  },
 ];
 
 const SOCIALS = [
@@ -74,6 +81,12 @@ const SOCIALS = [
     Icon: GithubIcon,
   },
   {
+    href: LINKEDIN_URL,
+    label: "LinkedIn",
+    description: "Professional profile",
+    Icon: LinkedinIcon,
+  },
+  {
     href: INSTAGRAM_URL,
     label: "Instagram",
     description: "Visual log",
@@ -81,7 +94,7 @@ const SOCIALS = [
   },
 ];
 
-const RAIL_SOCIALS = SOCIALS.filter(({ label }) => label !== "GitHub");
+const RAIL_SOCIALS = SOCIALS.filter(({ label }) => label !== "GitHub" && label !== "LinkedIn");
 
 function ExpandedLabel({
   label,

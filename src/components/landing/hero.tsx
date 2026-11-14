@@ -8,9 +8,9 @@ import {
   LAPTOP_COORDS,
   MUG_COORDS,
 } from "@/components/ui/workspace-hotspot";
-import { GithubIcon, InstagramIcon } from "@/components/icons";
+import { GithubIcon, InstagramIcon, LinkedinIcon } from "@/components/icons";
 import { StudioCat } from "@/components/studio-cat";
-import { CONTACT_EMAIL, GITHUB_URL, INSTAGRAM_URL } from "@/lib/projects";
+import { CONTACT_EMAIL, GITHUB_URL, INSTAGRAM_URL, LINKEDIN_URL } from "@/lib/projects";
 import { cn } from "@/lib/utils";
 import {
   Volume2,
@@ -126,6 +126,15 @@ export default function LandingHero() {
               className="hover:text-white hover:scale-110 transition-transform"
             >
               <GithubIcon className="size-4" />
+            </a>
+            <a
+              href={LINKEDIN_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="LinkedIn"
+              className="hover:text-white hover:scale-110 transition-transform"
+            >
+              <LinkedinIcon className="size-4" />
             </a>
             <a
               href={INSTAGRAM_URL}

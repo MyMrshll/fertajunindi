@@ -1,11 +1,12 @@
 import type { Metadata } from "next";
 import { ArrowRight, CircleDot, Clock, Mail, MapPin } from "lucide-react";
 import { SiteShell } from "@/components/site-shell";
-import { GithubIcon, InstagramIcon } from "@/components/icons";
+import { GithubIcon, InstagramIcon, LinkedinIcon } from "@/components/icons";
 import {
   CONTACT_EMAIL,
   GITHUB_URL,
   INSTAGRAM_URL,
+  LINKEDIN_URL,
   PROFILE,
 } from "@/lib/projects";
 
@@ -80,6 +81,15 @@ export default function ContactPage() {
             >
               <GithubIcon className="size-3.5" />
               GitHub
+            </a>
+            <a
+              href={LINKEDIN_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex min-w-28 items-center justify-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 font-mono-code text-xs text-[#A1A1AA] transition-colors hover:border-white/20 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/40"
+            >
+              <LinkedinIcon className="size-3.5" />
+              LinkedIn
             </a>
             <a
               href={INSTAGRAM_URL}

@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
 import { SiteShell } from "@/components/site-shell";
-import { GithubIcon, InstagramIcon } from "@/components/icons";
+import { GithubIcon, InstagramIcon, LinkedinIcon } from "@/components/icons";
 import {
   COLLABORATIONS,
   GITHUB_URL,
   INSTAGRAM_URL,
+  LINKEDIN_URL,
   OTHER_REPOS,
   PROFILE,
   PROJECTS,
@@ -55,6 +56,15 @@ export default function ProjectsPage() {
               className="grid size-9 place-items-center rounded-full border border-white/10 text-[#A1A1AA] transition-colors hover:border-white/20 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/40"
             >
               <GithubIcon className="size-4" />
+            </a>
+            <a
+              href={LINKEDIN_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="LinkedIn"
+              className="grid size-9 place-items-center rounded-full border border-white/10 text-[#A1A1AA] transition-colors hover:border-white/20 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/40"
+            >
+              <LinkedinIcon className="size-4" />
             </a>
             <a
               href={INSTAGRAM_URL}

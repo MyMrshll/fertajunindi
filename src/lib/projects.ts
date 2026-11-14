@@ -1,6 +1,7 @@
 export const GITHUB_USER = "MyMrshll";
 export const GITHUB_URL = "https://github.com/MyMrshll";
 export const INSTAGRAM_URL = "https://www.instagram.com/fertajunindi/";
+export const LINKEDIN_URL = "https://www.linkedin.com/in/ferta-junindi";
 export const CONTACT_EMAIL = "ferta.junindi@gmail.com";
 
 export const PROFILE = {

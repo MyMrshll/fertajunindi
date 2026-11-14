@@ -106,10 +106,10 @@ export function GitHubContributions() {
       </div>
 
       <div className="mt-5 overflow-x-auto">
-        <div className="min-w-[720px]">
-          <div className="flex gap-[3px]">
+        <div className="min-w-[760px]">
+          <div className="flex gap-[4px]">
             <div className="w-7 shrink-0" />
-            <div className="grid flex-1 grid-cols-[repeat(52,minmax(0,1fr))] gap-[3px] font-mono-code text-[9px] text-[#A1A1AA]/70">
+            <div className="grid flex-1 grid-cols-[repeat(52,minmax(0,1fr))] gap-[4px] font-mono-code text-[9px] text-[#A1A1AA]/70">
               {weeks.map((_, index) => {
                 const month = markers.get(index);
                 return (
@@ -121,15 +121,15 @@ export function GitHubContributions() {
             </div>
           </div>
 
-          <div className="mt-1.5 flex gap-[3px]">
-            <div className="flex w-7 flex-col gap-[3px] pr-1 font-mono-code text-[9px] text-[#A1A1AA]/70">
+          <div className="mt-1.5 flex gap-[4px]">
+            <div className="flex w-7 flex-col gap-[4px] pr-1 font-mono-code text-[9px] text-[#A1A1AA]/70">
               {["", "Mon", "", "Wed", "", "Fri", ""].map((label, index) => (
-                <span key={index} className="flex h-[11px] items-center">
+                <span key={index} className="flex h-[12px] items-center">
                   {label}
                 </span>
               ))}
             </div>
-            <div className="grid flex-1 grid-cols-[repeat(52,minmax(0,1fr))] gap-[3px]">
+            <div className="grid flex-1 grid-cols-[repeat(52,minmax(0,1fr))] gap-[4px]">
               {weeks.map((week, weekIndex) =>
                 week.map((level, dayIndex) => {
                   const day = weekIndex * 7 + dayIndex;
@@ -138,7 +138,7 @@ export function GitHubContributions() {
                     <span
                       key={`${weekIndex}-${dayIndex}`}
                       title={`${count} contribution${count === 1 ? "" : "s"} on ${formatDate(day)}`}
-                      className={`h-[11px] rounded-[2px] border ${LEVEL_STYLES[level]}`}
+                      className={`h-[12px] rounded-[2px] border ${LEVEL_STYLES[level]}`}
                     />
                   );
                 }),
@@ -151,7 +151,7 @@ export function GitHubContributions() {
             {LEVEL_STYLES.map((style, index) => (
               <span
                 key={index}
-                className={`size-[10px] rounded-[2px] border ${style}`}
+                className={`size-[11px] rounded-[2px] border ${style}`}
               />
             ))}
             <span>More</span>

@@ -14,11 +14,9 @@ export function Greeting() {
 
   return (
     <div>
-      <p className="font-mono-code text-[11px] uppercase tracking-[0.2em] text-[#F5EEDB]/45">
-        {greeting},
-      </p>
-      <h1 className="mt-0.5 font-pixel text-2xl font-bold tracking-tight text-[#F5EEDB] sm:text-3xl">
-        FERTA
+      <p className="dash-eyebrow">{greeting}, Ferta</p>
+      <h1 className="mt-1 font-pixel text-2xl font-bold tracking-tight text-[#F6E8C8] sm:text-3xl">
+        PROJECT INDEX
       </h1>
     </div>
   );

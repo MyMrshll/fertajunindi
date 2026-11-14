@@ -219,7 +219,7 @@ export function WorkspaceHotspot({
       <div
         className={`w-full h-full relative rounded-lg transition-all duration-300 ${
           isActive
-            ? "scale-[1.03] bg-amber-400/[0.04] shadow-[0_0_26px_rgba(245,158,11,0.4),inset_0_0_16px_rgba(251,191,36,0.18)]"
+            ? "scale-[1.03] bg-[#37D1E3]/[0.05] shadow-[0_0_26px_rgba(55,209,227,0.4),inset_0_0_16px_rgba(55,209,227,0.18)]"
             : "scale-100 bg-transparent shadow-none"
         }`}
       >
@@ -230,13 +230,13 @@ export function WorkspaceHotspot({
           }`}
         >
           {/* Top-Left Bracket */}
-          <div className="absolute top-0 left-0 w-3.5 h-3.5 border-t-2 border-l-2 border-amber-400 shadow-[0_0_8px_#f59e0b]" />
+          <div className="absolute top-0 left-0 w-3.5 h-3.5 border-t-2 border-l-2 border-[#37D1E3] shadow-[0_0_8px_#FCC27D]" />
           {/* Top-Right Bracket */}
-          <div className="absolute top-0 right-0 w-3.5 h-3.5 border-t-2 border-r-2 border-amber-400 shadow-[0_0_8px_#f59e0b]" />
+          <div className="absolute top-0 right-0 w-3.5 h-3.5 border-t-2 border-r-2 border-[#37D1E3] shadow-[0_0_8px_#FCC27D]" />
           {/* Bottom-Left Bracket */}
-          <div className="absolute bottom-0 left-0 w-3.5 h-3.5 border-b-2 border-l-2 border-amber-400 shadow-[0_0_8px_#f59e0b]" />
+          <div className="absolute bottom-0 left-0 w-3.5 h-3.5 border-b-2 border-l-2 border-[#37D1E3] shadow-[0_0_8px_#FCC27D]" />
           {/* Bottom-Right Bracket */}
-          <div className="absolute bottom-0 right-0 w-3.5 h-3.5 border-b-2 border-r-2 border-amber-400 shadow-[0_0_8px_#f59e0b]" />
+          <div className="absolute bottom-0 right-0 w-3.5 h-3.5 border-b-2 border-r-2 border-[#37D1E3] shadow-[0_0_8px_#FCC27D]" />
         </div>
 
         {/* Floating Discovery Tooltip: 1 Single Word with Warm Sunset Styling */}
@@ -252,15 +252,15 @@ export function WorkspaceHotspot({
               {/* Single Word Warm Badge */}
               <div
                 onClick={handleClick}
-                className="flex items-center gap-2 px-3 sm:px-3.5 py-1 sm:py-1.5 rounded-full bg-[#121024]/95 border border-amber-400/80 text-[#F5EEDB] font-pixel text-xs sm:text-sm font-bold tracking-widest shadow-[0_0_20px_rgba(245,158,11,0.45),0_6px_16px_rgba(0,0,0,0.8)] backdrop-blur-md transition-all duration-200 hover:scale-105 active:scale-95"
+                className="flex items-center gap-2 px-3 sm:px-3.5 py-1 sm:py-1.5 rounded-full bg-[#191740]/95 border border-[#37D1E3]/80 text-[#F6E8C8] font-pixel text-xs sm:text-sm font-bold tracking-widest shadow-[0_0_20px_rgba(55,209,227,0.45),0_6px_16px_rgba(0,0,0,0.8)] backdrop-blur-md transition-all duration-200 hover:scale-105 active:scale-95"
               >
-                <span className="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse shadow-[0_0_8px_#fbbf24]" />
+                <span className="w-1.5 h-1.5 rounded-full bg-[#FCC27D] animate-pulse shadow-[0_0_8px_#FCC27D]" />
                 <span>{label}</span>
-                <span className="font-mono-code text-[11px] text-amber-300">↗</span>
+                <span className="font-mono-code text-[11px] text-[#FCC27D]">↗</span>
               </div>
 
               {/* Warm Down-Pointing Arrow */}
-              <div className="w-0 h-0 border-x-4 border-x-transparent border-t-4 border-t-amber-400 mt-0.5 opacity-90 shadow-[0_2px_4px_rgba(0,0,0,0.5)]" />
+              <div className="w-0 h-0 border-x-4 border-x-transparent border-t-4 border-t-[#37D1E3] mt-0.5 opacity-90 shadow-[0_2px_4px_rgba(0,0,0,0.5)]" />
             </motion.div>
           )}
         </AnimatePresence>

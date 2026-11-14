@@ -1,10 +1,9 @@
-import Hero from "@/components/Hero";
+import LandingHero from "@/components/landing/hero";
 
 export default function Home() {
   return (
-    <main className="w-full min-h-screen bg-[#07090e] text-slate-100">
-      {/* Hero Section with Lo-Fi Night Coding Video Background */}
-      <Hero />
+    <main className="min-h-[100dvh] bg-background text-foreground">
+      <LandingHero />
     </main>
   );
 }

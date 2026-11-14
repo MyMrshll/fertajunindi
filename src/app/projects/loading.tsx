@@ -1,21 +1,22 @@
-import { LauncherShell } from "@/components/launcher-shell";
+import { SiteShell } from "@/components/site-shell";
 
 const SHELF = Array.from({ length: 5 });
 
 export default function ProjectsLoading() {
   return (
-    <LauncherShell>
-      <div
-        className="px-4 py-4 sm:px-6 lg:px-8 lg:py-6"
+    <SiteShell>
+      <main
+        className="space-y-4 sm:space-y-5"
         aria-busy="true"
         aria-live="polite"
       >
-        <span className="sr-only">Loading project launcher</span>
+        <span className="sr-only">Loading project index</span>
 
-        <header className="flex items-center justify-between gap-3">
+        <header className="flex flex-col gap-4 xl:flex-row xl:items-end xl:justify-between">
           <div>
             <div className="skeleton-shimmer h-2 w-24 rounded-full" />
-            <div className="skeleton-shimmer mt-2 h-9 w-44 rounded-lg" />
+            <div className="skeleton-shimmer mt-2 h-8 w-48 rounded-lg" />
+            <div className="skeleton-shimmer mt-3 h-2.5 w-64 max-w-full rounded-full" />
           </div>
           <div className="flex gap-2">
             <div className="skeleton-shimmer h-8 w-28 rounded-full" />
@@ -24,24 +25,19 @@ export default function ProjectsLoading() {
           </div>
         </header>
 
-        <div className="mt-4 grid grid-cols-1 gap-4 xl:grid-cols-[minmax(0,1fr)_360px]">
-          <div className="min-w-0 space-y-4">
-            <section className="launcher-hero relative overflow-hidden rounded-2xl border border-white/10 p-5 sm:p-7">
-              <div className="grid gap-6 md:grid-cols-[minmax(0,1.15fr)_minmax(0,0.85fr)] md:items-center">
-                <div>
-                  <div className="skeleton-shimmer h-2.5 w-32 rounded-full" />
-                  <div className="skeleton-shimmer mt-3 h-10 w-64 rounded-lg sm:h-12 sm:w-80" />
-                  <div className="skeleton-shimmer mt-4 h-3 w-full max-w-md rounded-full" />
-                  <div className="skeleton-shimmer mt-2 h-3 w-3/4 max-w-sm rounded-full" />
-                  <div className="mt-4 flex gap-1.5">
-                    <div className="skeleton-shimmer h-5 w-16 rounded-full" />
-                    <div className="skeleton-shimmer h-5 w-20 rounded-full" />
-                    <div className="skeleton-shimmer h-5 w-14 rounded-full" />
-                  </div>
-                  <div className="skeleton-shimmer mt-6 h-10 w-36 rounded-full" />
-                </div>
-                <div className="skeleton-shimmer h-44 rounded-2xl md:h-52" />
+        <div className="grid grid-cols-1 gap-4 xl:grid-cols-[minmax(0,1fr)_360px] xl:gap-5">
+          <div className="min-w-0 space-y-4 sm:space-y-5">
+            <section className="relative overflow-hidden rounded-3xl border border-[#F6E8C8]/15 bg-[#191740] p-5 sm:p-7">
+              <div className="skeleton-shimmer h-2.5 w-32 rounded-full" />
+              <div className="skeleton-shimmer mt-4 h-10 w-64 max-w-full rounded-lg sm:h-12 sm:w-80" />
+              <div className="skeleton-shimmer mt-4 h-3 w-full max-w-md rounded-full" />
+              <div className="skeleton-shimmer mt-2 h-3 w-3/4 max-w-sm rounded-full" />
+              <div className="mt-4 flex gap-1.5">
+                <div className="skeleton-shimmer h-5 w-16 rounded-full" />
+                <div className="skeleton-shimmer h-5 w-20 rounded-full" />
+                <div className="skeleton-shimmer h-5 w-14 rounded-full" />
               </div>
+              <div className="skeleton-shimmer mt-6 h-10 w-36 rounded-full" />
             </section>
 
             <section className="dash-panel p-4 sm:p-5">
@@ -108,9 +104,16 @@ export default function ProjectsLoading() {
                 </div>
               </div>
             </section>
+
+            <section className="dash-panel p-5">
+              <div className="skeleton-shimmer h-2.5 w-28 rounded-full" />
+              <div className="skeleton-shimmer mt-2 h-7 w-36 rounded" />
+              <div className="skeleton-shimmer mt-3 h-2.5 w-40 rounded-full" />
+              <div className="skeleton-shimmer mt-3 h-9 w-full rounded-lg" />
+            </section>
           </aside>
         </div>
-      </div>
-    </LauncherShell>
+      </main>
+    </SiteShell>
   );
 }

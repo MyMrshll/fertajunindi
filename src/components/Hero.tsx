@@ -1,293 +1,147 @@
 "use client";
 
-import React, { useState, useRef, useEffect } from "react";
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
-import {
-  WorkspaceHotspot,
-  LAPTOP_COORDS,
-  MUG_COORDS,
-} from "@/components/ui/workspace-hotspot";
-import { GithubIcon, InstagramIcon } from "@/components/icons";
 import { StudioCat } from "@/components/studio-cat";
-import { CONTACT_EMAIL, GITHUB_URL, INSTAGRAM_URL } from "@/lib/projects";
-import { cn } from "@/lib/utils";
+import { CONTACT_EMAIL } from "@/lib/projects";
 import {
-  Volume2,
-  VolumeX,
-  Play,
-  Pause,
-  Eye,
-  EyeOff,
   ArrowRight,
   Mail,
+  Pause,
+  Play,
+  Volume2,
+  VolumeX,
 } from "lucide-react";
 
+const mailto = `mailto:${CONTACT_EMAIL}?subject=Project%20inquiry`;
+
 export default function Hero() {
-  const heroSectionRef = useRef<HTMLElement | null>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
-  const router = useRouter();
-  const [isPlaying, setIsPlaying] = useState<boolean>(true);
-  const [isMuted, setIsMuted] = useState<boolean>(true);
-  const [zenMode, setZenMode] = useState<boolean>(false);
+  const [isPlaying, setIsPlaying] = useState(false);
+  const [isMuted, setIsMuted] = useState(true);
 
   useEffect(() => {
-    videoRef.current?.play().catch(() => {});
+    const reduced = window.matchMedia(
+      "(prefers-reduced-motion: reduce)"
+    ).matches;
+
+    if (!reduced) {
+      videoRef.current?.play().catch(() => {});
+    }
   }, []);
 
   const togglePlay = () => {
     if (!videoRef.current) return;
-    if (isPlaying) {
-      videoRef.current.pause();
-      setIsPlaying(false);
+    if (videoRef.current.paused) {
+      videoRef.current.play().catch(() => {});
     } else {
-      videoRef.current.play();
-      setIsPlaying(true);
+      videoRef.current.pause();
     }
   };
 
   const toggleMute = () => {
     if (!videoRef.current) return;
-    videoRef.current.muted = !isMuted;
-    setIsMuted(!isMuted);
+    const next = !isMuted;
+    videoRef.current.muted = next;
+    setIsMuted(next);
   };
-
-  const toggleZenMode = () => {
-    setZenMode((prev) => !prev);
-  };
-
-  const mailto = `mailto:${CONTACT_EMAIL}?subject=Project%20inquiry`;
 
   return (
-    <div className="relative w-full h-[100dvh] overflow-hidden bg-background text-foreground select-none">
-      {/* 1. Floating Pill Navbar */}
-      <header
-        className={cn(
-          "fixed top-0 left-0 w-full z-50 pt-4 sm:pt-5 px-4 sm:px-8 flex justify-center pointer-events-none transition-all duration-500",
-          zenMode ? "opacity-0 -translate-y-4" : "opacity-100 translate-y-0"
-        )}
-      >
-        <nav
-          className={cn(
-            "navbar-pill w-[calc(100%-2rem)] max-w-sm sm:w-auto sm:max-w-none px-3.5 sm:px-6 py-1.5 sm:py-2.5 rounded-full inline-flex items-center justify-between sm:justify-center gap-2 sm:gap-6 backdrop-blur-md",
-            zenMode ? "pointer-events-none" : "pointer-events-auto"
-          )}
+    <section
+      aria-labelledby="hero-heading"
+      className="launcher-hero relative isolate overflow-hidden rounded-3xl border border-[#B95465]/25"
+    >
+      <div className="absolute inset-0">
+        <video
+          ref={videoRef}
+          loop
+          muted={isMuted}
+          playsInline
+          preload="metadata"
+          poster="/poster.jpg"
+          onPlay={() => setIsPlaying(true)}
+          onPause={() => setIsPlaying(false)}
+          className="pixel-video h-full w-full object-cover object-center"
         >
-          <Link
-            href="/"
-            className="font-pixel text-base sm:text-lg font-bold text-foreground tracking-tight hover:scale-110 transition-transform px-2 py-1"
-          >
-            FJ
-          </Link>
+          <source src="/night-coding-room-4k-vibrant.mp4" type="video/mp4" />
+          <source src="/night-coding-room-vibrant.mp4" type="video/mp4" />
+          <source src="/night-coding-room-clean.mp4" type="video/mp4" />
+        </video>
+        <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(14,9,38,0.97)_0%,rgba(14,9,38,0.84)_46%,rgba(14,9,38,0.4)_100%)]" />
+        <div className="absolute inset-0 bg-[linear-gradient(0deg,rgba(14,9,38,0.92)_0%,rgba(14,9,38,0.08)_58%,rgba(14,9,38,0.5)_100%)]" />
+      </div>
 
-          <div className="flex items-center gap-0.5 sm:gap-5 text-[11px] sm:text-base font-medium">
-            <Link
-              href="/"
-              aria-current="page"
-              className="relative px-1 sm:px-0 py-2 sm:py-1.5 text-foreground font-semibold whitespace-nowrap"
+      <div className="relative z-10 flex min-h-[360px] flex-col justify-between gap-8 p-5 sm:min-h-[380px] sm:p-7 lg:min-h-[400px] lg:p-8">
+        <div className="flex items-start justify-between gap-3">
+          <span className="inline-flex items-center gap-2 rounded-full border border-[#B95465]/35 bg-[#0E0926]/55 px-3 py-1.5 font-mono-code text-[10px] uppercase tracking-[0.14em] text-[#FCC27D] backdrop-blur-md">
+            <span className="size-1.5 rounded-full bg-[#FCC27D] shadow-[0_0_8px_rgba(252,194,125,0.8)]" />
+            Open for select work
+          </span>
+
+          <div className="flex items-center gap-1.5">
+            <button
+              type="button"
+              onClick={togglePlay}
+              aria-label={isPlaying ? "Pause background video" : "Play background video"}
+              className="grid size-9 place-items-center rounded-full border border-[#F6E8C8]/15 bg-[#0E0926]/55 text-[#F6E8C8] backdrop-blur-md transition-colors hover:border-[#FCC27D]/50 hover:text-[#FCC27D] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#37D1E3] sm:size-10"
             >
-              Home
-              <span className="absolute left-1 sm:left-0 right-1 sm:right-0 bottom-1 sm:bottom-0 h-[2px] bg-foreground rounded-full" />
-            </Link>
-            <Link
-              href="/about"
-              className="px-1 sm:px-0 py-2 sm:py-1.5 text-foreground/65 hover:text-foreground transition-colors whitespace-nowrap"
+              {isPlaying ? <Pause className="size-4" /> : <Play className="size-4" />}
+            </button>
+            <button
+              type="button"
+              onClick={toggleMute}
+              aria-label={isMuted ? "Unmute background video" : "Mute background video"}
+              className="grid size-9 place-items-center rounded-full border border-[#F6E8C8]/15 bg-[#0E0926]/55 text-[#F6E8C8] backdrop-blur-md transition-colors hover:border-[#FCC27D]/50 hover:text-[#FCC27D] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#37D1E3] sm:size-10"
             >
-              About
-            </Link>
-            <Link
-              href="/projects"
-              className="px-1 sm:px-0 py-2 sm:py-1.5 text-foreground/65 hover:text-foreground transition-colors whitespace-nowrap"
-            >
-              Projects
-            </Link>
-            <Link
-              href="/contact"
-              className="px-1 sm:px-0 py-2 sm:py-1.5 text-foreground/65 hover:text-foreground transition-colors whitespace-nowrap"
-            >
-              Contact
-            </Link>
+              {isMuted ? <VolumeX className="size-4" /> : <Volume2 className="size-4" />}
+            </button>
           </div>
-
-          <div className="hidden sm:block h-4 w-px bg-white/20" />
-
-          <div className="hidden sm:flex items-center gap-3 text-foreground/85">
-            <a
-              href={GITHUB_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="GitHub"
-              className="hover:text-white hover:scale-110 transition-transform"
-            >
-              <GithubIcon className="size-4" />
-            </a>
-            <a
-              href={INSTAGRAM_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Instagram"
-              className="hover:text-white hover:scale-110 transition-transform"
-            >
-              <InstagramIcon className="size-4" />
-            </a>
-          </div>
-        </nav>
-      </header>
-
-      {/* 2. CTA Stage */}
-      <section
-        ref={heroSectionRef}
-        className="relative w-full h-full shrink-0 overflow-hidden flex flex-col justify-between"
-      >
-        <div className="absolute inset-0 w-full h-full z-0 overflow-hidden">
-          <video
-            ref={videoRef}
-            autoPlay
-            loop
-            muted={isMuted}
-            playsInline
-            poster="/poster.jpg"
-            className="w-full h-full object-cover object-center pixel-video transition-all duration-700"
-          >
-            <source src="/night-coding-room-4k-vibrant.mp4" type="video/mp4" />
-            <source src="/night-coding-room-vibrant.mp4" type="video/mp4" />
-            <source src="/night-coding-room-clean.mp4" type="video/mp4" />
-          </video>
         </div>
 
-        {/* Interactive workspace hotspots: laptop = projects, mug = contact */}
-        <WorkspaceHotspot
-          containerRef={heroSectionRef}
-          coords={LAPTOP_COORDS}
-          label="PROJECTS"
-          onClick={() => router.push("/projects")}
-        />
+        <div className="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
+          <div className="min-w-0 max-w-2xl">
+            <p className="dash-eyebrow">Systems engineer &amp; fullstack builder</p>
+            <h2
+              id="hero-heading"
+              className="mt-2 font-pixel text-[clamp(2.35rem,7vw,4.8rem)] font-bold leading-[0.95] tracking-tight text-[#F6E8C8] pixel-text-shadow"
+            >
+              FERTA JUNINDI
+            </h2>
+            <p className="mt-1.5 font-pixel text-[10px] tracking-[0.52em] text-[#FCC27D] sm:text-xs">
+              STUDIO
+            </p>
 
-        <WorkspaceHotspot
-          containerRef={heroSectionRef}
-          coords={MUG_COORDS}
-          label="CONTACT"
-          onClick={() => {
-            window.location.href = mailto;
-          }}
-        />
+            <p className="mt-4 max-w-lg font-mono-code text-xs leading-relaxed text-[#B9A9C5] sm:text-sm">
+              Designing compilers, distributed tools, and practical software
+              that lasts.
+            </p>
 
-        <div className="pt-24 pointer-events-none" />
+            <div className="mt-5 flex flex-wrap items-center gap-2.5 sm:mt-6">
+              <Link
+                href="/projects"
+                className="group inline-flex min-h-11 items-center gap-3 rounded-full bg-[#A94A5A] py-1.5 pl-5 pr-1.5 font-mono-code text-xs font-bold text-[#F6E8C8] shadow-[0_14px_30px_rgba(1,1,26,0.42)] transition-all duration-200 hover:bg-[#983E4F] hover:scale-[1.02] active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#37D1E3] sm:text-sm"
+              >
+                <span>View Projects</span>
+                <span className="grid size-7 place-items-center rounded-full bg-[#F6E8C8] text-[#A94A5A] transition-transform duration-200 group-hover:translate-x-0.5">
+                  <ArrowRight className="size-3.5" />
+                </span>
+              </Link>
 
-        <div
-          className={cn(
-            "relative z-10 w-full page-content pb-6 flex flex-col justify-end transition-all duration-700",
-            zenMode
-              ? "opacity-0 translate-y-8 pointer-events-none"
-              : "opacity-100 translate-y-0"
-          )}
-        >
-          <div className="flex flex-col md:flex-row items-start md:items-end justify-between gap-6 sm:gap-8 w-full">
-            <div className="flex flex-col justify-end max-w-full">
-              <h1 className="font-pixel text-4xl sm:text-5xl md:text-6xl lg:text-[70px] font-bold text-foreground tracking-tight leading-none pixel-text-shadow">
-                FERTA JUNINDI
-              </h1>
-
-              <div className="font-pixel text-xs sm:text-base md:text-lg text-foreground/90 tracking-[0.38em] sm:tracking-[0.52em] mt-1 sm:mt-2 pl-0.5 pixel-text-shadow">
-                STUDIO
-              </div>
-            </div>
-
-            <div className="flex flex-col items-start pb-1">
-              <div className="flex flex-col gap-3.5 sm:gap-4">
-                <p className="font-mono-code text-xs sm:text-sm md:text-base text-foreground leading-snug subtle-shadow max-w-md">
-                  Systems engineer &amp; fullstack builder.
-                  <br />
-                  Designing compilers, distributed tools,
-                  <br />
-                  and practical software that lasts.
-                </p>
-
-                <div className="flex flex-wrap items-center gap-2.5 sm:gap-3">
-                  <Link
-                    href="/projects"
-                    className="group inline-flex items-center gap-3 sm:gap-4 pl-5 sm:pl-6 pr-1.5 sm:pr-2 py-1.5 sm:py-2 rounded-full bg-primary hover:bg-[#FFF8EB] text-primary-foreground font-mono-code font-bold text-xs sm:text-sm shadow-2xl transition-all duration-200 hover:scale-[1.02] active:scale-[0.98]"
-                  >
-                    <span>View Projects</span>
-                    <span className="size-6 sm:size-7 rounded-full bg-primary-foreground text-primary flex items-center justify-center transition-transform duration-200 group-hover:translate-x-0.5">
-                      <ArrowRight className="size-3.5 sm:size-4" />
-                    </span>
-                  </Link>
-
-                  <a
-                    href={mailto}
-                    className="inline-flex items-center gap-2 px-5 py-2 rounded-full border border-white/25 text-foreground/85 hover:text-amber-200 hover:border-amber-400/60 font-mono-code text-xs sm:text-sm transition-colors duration-200"
-                  >
-                    <Mail className="size-3.5 sm:size-4" />
-                    Get in Touch
-                  </a>
-                </div>
-              </div>
+              <a
+                href={mailto}
+                className="inline-flex min-h-11 items-center gap-2 rounded-full border border-[#F6E8C8]/20 bg-[#0E0926]/35 px-5 py-2 font-mono-code text-xs text-[#F6E8C8] backdrop-blur-md transition-colors duration-200 hover:border-[#B95465]/60 hover:text-[#FCC27D] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#37D1E3] sm:text-sm"
+              >
+                <Mail className="size-3.5" />
+                Get in Touch
+              </a>
             </div>
           </div>
 
-          <div className="mt-8 pt-3 border-t border-white/15 flex items-center justify-end text-foreground/75">
-            <div className="flex items-center gap-2">
-              <button
-                type="button"
-                onClick={togglePlay}
-                title={isPlaying ? "Pause" : "Play"}
-                aria-label={isPlaying ? "Pause video" : "Play video"}
-                className="p-1.5 rounded hover:bg-white/10 hover:text-white transition-colors cursor-pointer text-foreground"
-              >
-                {isPlaying ? (
-                  <Pause className="size-4 text-foreground" />
-                ) : (
-                  <Play className="size-4 text-amber-400" />
-                )}
-              </button>
-
-              <span className="text-white/20">|</span>
-
-              <button
-                type="button"
-                onClick={toggleMute}
-                title={isMuted ? "Unmute sound" : "Mute sound"}
-                aria-label={isMuted ? "Unmute sound" : "Mute sound"}
-                className="p-1.5 rounded hover:bg-white/10 hover:text-white transition-colors cursor-pointer text-foreground"
-              >
-                {isMuted ? (
-                  <VolumeX className="size-4 text-foreground/70" />
-                ) : (
-                  <Volume2 className="size-4 text-amber-400 animate-pulse" />
-                )}
-              </button>
-
-              <span className="text-white/20">|</span>
-
-              <button
-                type="button"
-                onClick={toggleZenMode}
-                title="Zen Mode: Hide UI to view clean background artwork"
-                aria-label="Zen Mode: Hide UI"
-                className="p-1.5 rounded hover:bg-white/10 hover:text-white transition-colors cursor-pointer text-foreground"
-              >
-                <Eye className="size-4 text-foreground" />
-              </button>
-            </div>
-          </div>
-
-          <StudioCat zenMode={zenMode} />
-        </div>
-      </section>
-
-      {/* 3. Zen Mode Restore Overlay */}
-      {zenMode && (
-        <div
-          onClick={toggleZenMode}
-          className="absolute inset-0 z-50 cursor-pointer flex items-end justify-center pb-12 bg-transparent"
-        >
-          <div className="px-5 py-2.5 rounded-full bg-[#121024]/85 border border-white/20 text-xs font-mono-code text-foreground backdrop-blur-md shadow-2xl flex items-center gap-2.5 hover:scale-105 transition-transform animate-pulse">
-            <EyeOff className="size-4 text-amber-300" />
-            <span>ZEN VIEW ACTIVE — CLICK ANYWHERE TO RESTORE</span>
+          <div className="w-full shrink-0 self-start sm:w-auto sm:self-end">
+            <StudioCat anchorClassName="relative" />
           </div>
         </div>
-      )}
-    </div>
+      </div>
+    </section>
   );
 }
